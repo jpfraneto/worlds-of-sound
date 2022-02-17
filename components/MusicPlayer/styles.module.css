@@ -1,0 +1,24 @@
+.musicPlayerContainer {
+  background: rgb(255, 0, 142);
+  background: linear-gradient(
+    252deg,
+    rgba(255, 0, 142, 1) 0%,
+    rgba(210, 39, 121, 1) 18%,
+    rgba(97, 40, 151, 1) 45%,
+    rgba(41, 33, 135, 1) 60%,
+    rgba(193, 39, 125, 1) 79%,
+    rgba(12, 30, 127, 1) 98%
+  );
+  border-top: 8px var(--white-txt) solid;
+  height: 170px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+}
+
+.musicInformationContainer {
+  padding: 8px;
+}

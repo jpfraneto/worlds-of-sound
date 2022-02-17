@@ -1,3 +1,11 @@
+:root {
+  --primary: #ff008e;
+  --secondary: #d22779;
+  --third: #612897;
+  --fourth: #0c1e7f;
+  --white-txt: #fff;
+}
+
 html,
 body {
   padding: 0;
@@ -13,4 +21,6 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }

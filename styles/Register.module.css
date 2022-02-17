@@ -1,0 +1,9 @@
+.usersPlayground {
+  background-color: lightblue;
+  border: solid black 2px;
+  width: 333px;
+  height: 333px;
+}
+.userLine {
+  display: flex;
+}
