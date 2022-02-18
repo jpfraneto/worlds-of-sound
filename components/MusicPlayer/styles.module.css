@@ -19,6 +19,22 @@
   padding: 0 22px;
 }
 
+.iframeContainer {
+  width: 70%;
+}
+
 .musicInformationContainer {
+  width: 30%;
   padding: 8px;
+}
+
+@media only screen and (min-width: 992px) {
+  .iframeContainer {
+    width: 35%;
+  }
+
+  .musicInformationContainer {
+    width: 65%;
+    padding: 8px;
+  }
 }

@@ -1,0 +1,26 @@
+.musicContainerDiv {
+  display: flex;
+  margin-top: 10px;
+}
+
+.musicContainer {
+  background-color: lightblue;
+  padding: 8px;
+  width: 444px;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.musicPlayerContainer {
+  background-color: red;
+  padding: 8px;
+  width: fit-content;
+  height: fit-content;
+  margin: 12px auto;
+  border-radius: 12px;
+}
+
+.controlsContainer {
+  background-color: blue;
+  border-radius: 8px;
+}

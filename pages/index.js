@@ -23,7 +23,7 @@ export default function Home() {
           </Link>
         </div>
         <p>
-          Dont have an account?
+          Dont have an account?{' '}
           <Link href='/register'>
             <a className={styles.signInBtn}>Register</a>
           </Link>
