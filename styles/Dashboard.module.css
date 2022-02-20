@@ -1,0 +1,6 @@
+.mainContainer {
+  background-color: aquamarine;
+  width: 444px;
+  margin: 0 auto;
+  overflow-y: scroll;
+}
