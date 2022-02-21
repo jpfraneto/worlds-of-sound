@@ -1,0 +1,42 @@
+.aboutMainContainer {
+  background-color: aquamarine;
+  height: var(--section-height);
+  display: flex;
+  margin: 0 88px;
+  position: relative;
+  flex-direction: row-reverse;
+}
+
+.aboutImage {
+  height: auto;
+  width: 444px;
+}
+
+.aboutTextContainer {
+  background-color: white;
+  z-index: 1;
+  height: fit-content;
+  margin: auto 22px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.lastLine {
+  margin-left: 56px;
+}
+
+.rainbowText {
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}

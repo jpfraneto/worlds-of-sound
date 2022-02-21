@@ -1,5 +1,4 @@
 .container {
-  padding: 0 2rem;
   background-image: url('/images/solen-feyissa.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -7,13 +6,11 @@
 }
 
 .main {
-  height: calc(100vh - 66px);
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: var(--section-height);
+  overflow-y: scroll;
+  border-left: 12px white solid;
+  border-right: 12px white solid;
+  border-bottom: 12px white solid;
 }
 
 .main h2 {
@@ -59,4 +56,38 @@
     font-family: 'Shizuru', cursive;
     color: white;
   }
+}
+
+.sectionContainer {
+  margin: 0 auto;
+  width: 88%;
+}
+
+.firstSection {
+  height: var(--section-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.secondSection {
+  height: var(--section-height);
+  padding-left: 88px;
+  padding-right: 88px;
+  display: flex;
+  justify-content: center;
+}
+
+.leftSecondDiv {
+  background-color: red;
+  border-radius: 4px;
+  height: 444px;
+  width: 444px;
+}
+
+.rightSecondDiv {
+  background-color: purple;
+  border-radius: 4px;
+  height: 444px;
+  width: 444px;
 }

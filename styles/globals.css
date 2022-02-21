@@ -4,6 +4,7 @@
   --third: #612897;
   --fourth: #0c1e7f;
   --white-txt: #fff;
+  --section-height: calc(100vh - 111px);
 }
 
 html,

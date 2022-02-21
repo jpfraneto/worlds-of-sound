@@ -1,14 +1,13 @@
 import '../styles/globals.css';
-import MusicPlayer from '../components/MusicPlayer';
 import Navbar from '../components/Navbar';
 import { SessionProvider } from 'next-auth/react';
 
-function App({ Component, pageProps: { session, ...pageProps } }) {
+function App({ Component, pageProps: { session, ...pageProps }, router }) {
+  const getLayout = Component.getLayout || (page => page);
   return (
     <SessionProvider session={session}>
       <Navbar />
-      <Component {...pageProps} />
-      <MusicPlayer />
+      {getLayout(<Component {...pageProps} />)}
     </SessionProvider>
   );
 }

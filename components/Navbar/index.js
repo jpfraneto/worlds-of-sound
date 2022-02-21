@@ -1,20 +1,22 @@
 import styles from './styles.module.css';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
   const { data: session } = useSession();
   const [text, setText] = useState('');
+
   useEffect(() => {
     if (session) {
-      setText(`Log Out from ${session.user.email}`);
+      setText(`Log Out`);
     } else {
       setText('Sign In');
     }
   }, [session]);
 
-  const handleClick = () => {
-    console.log('the session is: ', session);
+  const handleSessionClick = () => {
     if (session) {
       signOut();
     } else {
@@ -24,7 +26,37 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navContainer}>
-      <button onClick={handleClick}>{text}</button>
+      <div className={styles.musicPlayer}>Here goes the music player</div>
+      <Link href='/'>
+        <div className={styles.logoDiv}>
+          <Image src='/logo.png' width={60} height={60} />
+          <a className={styles.logoLink}>Worlds of Sound</a>
+        </div>
+      </Link>
+      <ul className={styles.itemsList}>
+        <li className={styles.navElement}>
+          <Link href='/about'>
+            <a>About</a>
+          </Link>
+        </li>
+        {session && session.user.email && (
+          <li className={`${styles.btn} ${styles.contactSalesBtn}`}>
+            <Link href='/u/dashboard'>
+              <a>Dashboard</a>
+            </Link>
+          </li>
+        )}
+        <li
+          onClick={handleSessionClick}
+          className={
+            !session
+              ? `${styles.btn} ${styles.loginBtn}`
+              : `${styles.btn} ${styles.logoutBtn}`
+          }
+        >
+          {text}
+        </li>
+      </ul>
     </nav>
   );
 };

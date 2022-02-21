@@ -15,21 +15,17 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h2>Worlds of Sounds</h2>
-        <div className={styles.landingBtns}>
-          <Link href='/login'>
-            <a>Login</a>
-          </Link>
-          <Link href='/guest'>
-            <a>Guest</a>
-          </Link>
-        </div>
-        <p>
-          Dont have an account?{' '}
-          <Link href='/register'>
-            <a className={styles.signInBtn}>Register</a>
-          </Link>
-        </p>
+        <section
+          className={`${styles.firstSection} ${styles.sectionContainer}`}
+        >
+          <h2>Worlds of Sounds</h2>
+        </section>
+        <section
+          className={`${styles.secondSection} ${styles.sectionContainer}`}
+        >
+          <div className={styles.leftSecondDiv}>Integrate Youtube</div>
+          <div className={styles.rightSecondDiv}>Integrate Soundcloud</div>
+        </section>
       </main>
     </div>
   );
