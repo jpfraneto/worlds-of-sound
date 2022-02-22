@@ -21,22 +21,34 @@ export default async function handler(req, res) {
 const getUser = async (req, res) => {
   let { db } = await connectToDatabase();
   const user = await db.collection('users').findOne({ email: req.query.email });
-  console.log('the gotten user is: ', user);
   res.json(user);
   //   return res.json(users);
 };
 
 const updateUser = async (req, res) => {
   let { db } = await connectToDatabase();
-  console.log('inside the update User route', req.body);
-  await db.collection('users').updateOne(
-    {
-      email: req.query.email,
-    },
-    { $push: { music: req.body } }
-  );
-  return res.json({
-    message: 'User updated successfully',
-    success: true,
-  });
+  try {
+    await db.collection('users').updateOne(
+      {
+        _id: ObjectId(req.body._id),
+      },
+      {
+        $set: {
+          soundcloudId: req.body.soundcloudId,
+          youtubeId: req.body.youtubeId,
+          username: req.body.username,
+        },
+      }
+    );
+    return res.json({
+      message: 'The user was updated successfully',
+      success: true,
+    });
+  } catch (error) {
+    console.error();
+    return res.json({
+      message: 'There was an error updating the user',
+      success: false,
+    });
+  }
 };

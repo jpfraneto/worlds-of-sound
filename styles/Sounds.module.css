@@ -1,0 +1,15 @@
+.mainContainer {
+  padding: 0 88px;
+}
+
+.soundsNav {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--primary);
+  list-style-type: none;
+  border-bottom: 3px solid black;
+}
+
+.soundsNav > *:hover {
+  cursor: pointer;
+}

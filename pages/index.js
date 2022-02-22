@@ -26,6 +26,11 @@ export default function Home() {
           <div className={styles.leftSecondDiv}>Integrate Youtube</div>
           <div className={styles.rightSecondDiv}>Integrate Soundcloud</div>
         </section>
+        <section
+          className={`${styles.thirdSection} ${styles.sectionContainer}`}
+        >
+          <div className={styles.centerThirdDiv}>Hello People</div>
+        </section>
       </main>
     </div>
   );

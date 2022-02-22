@@ -4,18 +4,13 @@ import { FaUserAstronaut } from 'react-icons/fa';
 import { GrSettingsOption } from 'react-icons/gr';
 import { SiMusicbrainz } from 'react-icons/si';
 
-const NavbarLeft = ({ session }) => {
-  const handleMusicFetch = async () => {
-    const response = await fetch(`/api/users/${session.user.email}`);
-    const user = await response.json();
-    setMusic(user.music);
-  };
-
+const NavbarLeft = ({ session, userData }) => {
   return (
     <div className={styles.leftNav}>
       <div className={styles.topContainer}>
         <p>{session.user.name}</p>
         <p>{session.user.email}</p>
+        <h3>@{userData.username}</h3>
       </div>
       <div className={styles.bottomContainer}>
         <Link href='/u/dashboard'>

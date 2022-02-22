@@ -61,21 +61,18 @@
 .sectionContainer {
   margin: 0 auto;
   width: 88%;
-}
-
-.firstSection {
   height: var(--section-height);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.firstSection {
+}
+
 .secondSection {
-  height: var(--section-height);
   padding-left: 88px;
   padding-right: 88px;
-  display: flex;
-  justify-content: center;
 }
 
 .leftSecondDiv {
@@ -90,4 +87,14 @@
   border-radius: 4px;
   height: 444px;
   width: 444px;
+}
+
+.thirdSection {
+}
+
+.centerThirdDiv {
+  background-color: aliceblue;
+  width: 100%;
+  height: 88%;
+  text-align: center;
 }
