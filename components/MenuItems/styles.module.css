@@ -1,3 +1,8 @@
-.menuItems:hover {
+.menuItems h2:hover {
   color: var(--third);
+}
+
+.menuItems li:hover {
+  color: var(--secondary);
+  transform: translateX(4px);
 }

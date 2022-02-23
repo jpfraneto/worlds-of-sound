@@ -11,6 +11,16 @@ const Dropdown = ({ type, submenus, dropdown }) => {
           </Link>
         </li>
       ))}
+      <div className={styles.newElementBtnContainer}>
+        <Link
+          href={{
+            pathname: '/sounds/new',
+            query: { type },
+          }}
+        >
+          <a className={styles.newElementBtn}>Add new {type}</a>
+        </Link>
+      </div>
     </ul>
   );
 };

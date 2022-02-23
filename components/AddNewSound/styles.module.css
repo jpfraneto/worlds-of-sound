@@ -1,0 +1,67 @@
+.addNewSoundContainer {
+  width: 666px;
+  background-color: var(--secondary);
+  border: solid black 3px;
+  margin: 22px auto;
+  text-align: center;
+}
+
+.hostedContainer {
+  border: solid black 1px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.icons div {
+  display: inline-block;
+}
+
+.icons div > * {
+  width: 88px;
+  height: 88px;
+  margin: 0 20px;
+  pointer-events: none;
+}
+
+.icons > *:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.urlContainer > * {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.urlContainer input {
+  height: 33px;
+  width: 88%;
+  border-radius: 8px;
+  font-size: fit-content;
+}
+
+.btn {
+  padding: 8px;
+  border-radius: 8px;
+  color: white;
+  border: solid black 1px;
+  display: block;
+  width: fit-content;
+  margin: 8px auto;
+}
+
+.btn:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.addSoundBtn {
+  background-color: var(--primary);
+}
+
+.goToSoundBtn {
+  background-color: var(--third);
+}

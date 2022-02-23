@@ -1,0 +1,60 @@
+.topNav {
+  background-color: var(--secondary);
+  width: 100%;
+}
+
+.topNav h2 {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 8px solid black;
+}
+
+.soundElementsContainer {
+  background-color: var(--secondary);
+  border: solid black 1px;
+  border-radius: 8px;
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+  padding: 12px;
+}
+
+.innerSoundsContainer {
+  display: flex;
+  overflow-x: scroll;
+  width: 80%;
+  height: 222px;
+}
+
+.playerContainer {
+  width: 30%;
+  height: 222px;
+  margin: 0 auto;
+  background-color: aliceblue;
+  border: solid black 2px;
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.noSoundsContainer {
+  text-align: center;
+  width: 100%;
+}
+
+.newElementBtn {
+  background-color: var(--primary);
+  padding: 4px;
+  border-radius: 8px;
+  border: solid black 1px;
+}
+
+.newElementBtn:hover {
+  filter: brightness(85%);
+  cursor: pointer;
+}
+
+.noSoundsMsg {
+  color: white;
+  font-size: 3rem;
+}

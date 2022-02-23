@@ -26,7 +26,6 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navContainer}>
-      <div className={styles.musicPlayer}>Here goes the music player</div>
       <Link href='/'>
         <div className={styles.logoDiv}>
           <Image src='/logo.png' width={60} height={60} />

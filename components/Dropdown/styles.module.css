@@ -16,3 +16,18 @@
 .show {
   display: block;
 }
+
+.newElementBtnContainer {
+  margin-top: 10px;
+}
+
+.newElementBtn {
+  background-color: var(--primary);
+  padding: 4px;
+  border-radius: 8px;
+  border: solid black 1px;
+}
+
+.newElementBtn:hover {
+  filter: brightness(85%);
+}

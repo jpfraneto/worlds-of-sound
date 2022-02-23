@@ -1,0 +1,12 @@
+.soundElementCardContainer {
+  border: solid black 1px;
+  background-color: var(--primary);
+  min-width: 161px;
+  height: 90%;
+  margin: auto 12px;
+}
+
+.soundElementCardContainer:hover {
+  background-color: var(--secondary);
+  cursor: pointer;
+}
