@@ -7,6 +7,7 @@ import Link from 'next/link';
 const AddNewSound = ({ type }) => {
   const [provider, setProvider] = useState('');
   const [url, setUrl] = useState('');
+  const [description, setDescription] = useState('');
   const [serverMessage, setServerMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const handleProviderSelection = e => {
@@ -25,12 +26,12 @@ const AddNewSound = ({ type }) => {
 
   const submitSound = async () => {
     if (!url) {
-      return alert('Please add an url for the sound you want to add!');
+      return alert('Please add a valid url!');
     }
     const reqParams = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url, provider, type }),
+      body: JSON.stringify({ url, provider, type, description }),
     };
     setLoading(true);
     const response = await fetch('/api/sounds', reqParams);
@@ -41,7 +42,7 @@ const AddNewSound = ({ type }) => {
 
   return (
     <div className={styles.addNewSoundContainer}>
-      <h2>Add new {type} sound</h2>
+      <h2>Add new {type}</h2>
       <form>
         <div className={styles.hostedContainer}>
           <h3>Where is it hosted?</h3>
@@ -66,6 +67,16 @@ const AddNewSound = ({ type }) => {
             name='url'
             onChange={e => setUrl(e.target.value)}
             placeholder={providerPlacerholder()}
+          />
+        </div>
+        <div className={styles.descriptionContainer}>
+          <label htmlFor='description'>What is this piece all about?</label>
+          <textarea
+            type='text'
+            id='description'
+            name='description'
+            onChange={e => setDescription(e.target.value)}
+            placeholder='Description...'
           />
         </div>
         {!serverMessage ? (

@@ -1,14 +1,13 @@
 import { getLayout } from '../../../components/SoundsLayout';
+import SoundDisplayPage from '../../../components/SoundDisplayPage';
 
 const SoundById = ({ sound }) => {
-  console.log('inside the component, the aloja is: ', sound);
-  return <h2>This is the page for a particular id</h2>;
+  return <SoundDisplayPage sound={sound} />;
 };
 
 SoundById.getLayout = getLayout;
 
 export async function getServerSideProps(context) {
-  console.log('THIS IS RUNNING');
   const res = await fetch(
     `http://localhost:3000/api/sounds/id/${context.query.id}`
   );

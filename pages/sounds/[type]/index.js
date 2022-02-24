@@ -4,6 +4,7 @@ import { useState } from 'react';
 import styles from '../../../styles/SoundType.module.css';
 import SoundElementCard from '../../../components/SoundElementCard';
 import Link from 'next/link';
+import ReactPlayer from 'react-player';
 
 const elements = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
@@ -48,7 +49,12 @@ const SoundTypePage = ({ sounds }) => {
       </div>
       {chosenElement && (
         <div className={styles.playerContainer}>
-          Here goes the chosen one {chosenElement}
+          <ReactPlayer
+            width='100%'
+            height='100%'
+            url={chosenElement.url}
+            controls='true'
+          />
         </div>
       )}
     </>

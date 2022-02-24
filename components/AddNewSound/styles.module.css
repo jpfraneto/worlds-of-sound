@@ -7,6 +7,7 @@
 }
 
 .hostedContainer {
+  background-color: rgb(163, 157, 157);
   border: solid black 1px;
   width: fit-content;
   margin: 0 auto;
@@ -41,6 +42,19 @@
   width: 88%;
   border-radius: 8px;
   font-size: fit-content;
+}
+
+.descriptionContainer textarea {
+  width: 88%;
+  margin: 0 auto;
+  padding: 2px 4px;
+  background-color: transparent;
+  border: solid black 0.5px;
+  color: black;
+}
+
+.descriptionContainer textarea::placeholder {
+  color: black;
 }
 
 .btn {

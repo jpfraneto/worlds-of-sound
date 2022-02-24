@@ -1,0 +1,65 @@
+.commentContainer {
+  display: flex;
+  margin: 4px 0;
+}
+
+.commentContainer img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.fullCommentContainer {
+  width: 90%;
+  padding: 8px;
+}
+
+.commentReactions {
+  display: flex;
+  align-items: center;
+}
+
+.commentText {
+  margin: 2px 0 5px;
+}
+
+.commentReactions > * {
+  margin: 0 8px;
+  font-size: 1.1rem;
+}
+
+.commentReactions span:hover {
+  cursor: pointer;
+}
+
+.commentReactions span:nth-child(1):hover {
+  color: green;
+}
+
+.commentReactions span:nth-child(2):hover {
+  color: red;
+}
+
+.substringToggle {
+  color: grey;
+  font-weight: bold;
+  font-size: 0.7rem;
+  line-height: 28px;
+  cursor: pointer;
+}
+
+.commentReactions button {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+  background-color: transparent;
+  border: none;
+}
+
+.commentReactions button:hover {
+  cursor: pointer;
+}
+
+.timeAgoText {
+  font-size: 0.61rem;
+}

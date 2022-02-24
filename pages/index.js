@@ -18,7 +18,7 @@ export default function Home() {
         <section
           className={`${styles.firstSection} ${styles.sectionContainer}`}
         >
-          <h2>Worlds of Sounds</h2>
+          <h2>Worlds of Sound</h2>
         </section>
         <section
           className={`${styles.secondSection} ${styles.sectionContainer}`}

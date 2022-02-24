@@ -1,0 +1,14 @@
+.mainContainer {
+  width: 60%;
+  margin: 20px auto;
+}
+
+.playerContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.soundInformation {
+  text-align: left;
+  margin: 10px auto;
+}

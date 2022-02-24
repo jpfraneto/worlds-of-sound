@@ -6,7 +6,22 @@
   margin: auto 12px;
 }
 
-.soundElementCardContainer:hover {
-  background-color: var(--secondary);
+.playIcon {
+  font-size: 3rem;
+}
+
+.playIcon:hover {
   cursor: pointer;
+  opacity: 0.7;
+}
+
+.goToBtn {
+  padding: 2px 4px;
+  border-radius: 4px;
+  background-color: var(--secondary);
+  border: solid black 1px;
+}
+
+.goToBtn:hover {
+  filter: brightness(85%);
 }
