@@ -1,5 +1,6 @@
 const { connectToDatabase } = require('../../../lib/mongodb');
 const ObjectId = require('mongodb').ObjectId;
+import { getSession } from 'next-auth/react';
 
 export default async function handler(req, res) {
   // switch the methods
@@ -24,10 +25,10 @@ export default async function handler(req, res) {
 
 const getSoundsByType = async (req, res) => {
   let { db } = await connectToDatabase();
-  console.log('the get sounds req.query is', req.query);
   const sounds = await db
     .collection('sounds')
     .find({ type: req.query.type })
     .toArray();
+  console.log('THE SOUNDS ARE: ', sounds);
   return res.json(sounds);
 };

@@ -1,15 +1,12 @@
-import { getLayout } from '../../../components/SoundsLayout';
-import { useRouter } from 'next/router';
+import styles from './styles.module.css';
 import { useState } from 'react';
-import styles from '../../../styles/SoundType.module.css';
-import SoundElementCard from '../../../components/SoundElementCard';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
+import SoundElementCard from '../SoundElementCard';
+import SpotifyPlayer from '../SpotifyPlayer';
 import ReactPlayer from 'react-player';
-import SpotifyPlayer from '../../../components/SpotifyPlayer';
+import Link from 'next/link';
 
-const elements = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-
-const SoundTypePage = ({ sounds }) => {
+const SoundsListDisplay = ({ sounds }) => {
   const [chosenElement, setChosenElement] = useState(null);
   const router = useRouter();
   return (
@@ -66,16 +63,4 @@ const SoundTypePage = ({ sounds }) => {
   );
 };
 
-SoundTypePage.getLayout = getLayout;
-
-export async function getServerSideProps(context) {
-  const res = await fetch(
-    `http://localhost:3000/api/sounds/${context.query.type}`
-  );
-  const sounds = await res.json();
-  return {
-    props: { sounds },
-  };
-}
-
-export default SoundTypePage;
+export default SoundsListDisplay;

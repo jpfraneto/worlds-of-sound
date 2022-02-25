@@ -6,28 +6,26 @@ import Loader from '../Loader';
 import React, { useState, useEffect } from 'react';
 
 const AccountLayout = ({ children, name = 'chocapec' }) => {
-  const { data: session } = useSession();
-  const [userData, setUserData] = useState({ name: 'chocapec' });
-  useEffect(async () => {
-    if (!session) return;
-    const fetchUser = async email => {
-      const data = await fetch(`/api/users/${email}`);
-      const json = await data.json();
-      console.log('inside the fetch user function', json);
-      setUserData(json);
-    };
-    fetchUser(session.user.email).catch(console.error);
-  }, [session]);
+  const { data: session, status } = useSession();
+  const [loading, setLoading] = useState(false);
+
+  if (status === 'loading') {
+    return (
+      <div className={styles.loaderContainer}>
+        <Loader />
+      </div>
+    );
+  }
+
   if (session)
     return (
       <div className={styles.mainContainer}>
-        <NavbarLeft session={session} userData={userData} />
+        <NavbarLeft session={session} />
         <div className={styles.contentContainer}>
-          {addPropsToChildren(children, { userData, setUserData })}
+          {addPropsToChildren(children, { session })}
         </div>
       </div>
     );
-  else return <Loader />;
 };
 
 export const getLayout = page =>

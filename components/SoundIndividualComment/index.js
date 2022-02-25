@@ -1,16 +1,28 @@
 import styles from './styles.module.css';
 import { BsHandThumbsUp, BsHandThumbsDown } from 'react-icons/bs';
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const SoundIndividualComment = ({ thisComment }) => {
   const [displayFull, setDisplayFull] = useState(false);
   const [comment, setComment] = useState(thisComment);
   return (
     <div className={styles.commentContainer}>
-      <img src='https://yt3.ggpht.com/5b5MRf7WDt9JZQJ__nDsK-78GJ9rTUIHo4OIA1DeyoMWa4mUOG2A-59K_BV2b9Ly9Q_dusPmOA=s88-c-k-c0x00ffffff-no-rj' />
+      <div className={styles.avatarImageContainer}>
+        <Image
+          width={50}
+          height={50}
+          alt='User Avatar'
+          src='https://yt3.ggpht.com/5b5MRf7WDt9JZQJ__nDsK-78GJ9rTUIHo4OIA1DeyoMWa4mUOG2A-59K_BV2b9Ly9Q_dusPmOA=s88-c-k-c0x00ffffff-no-rj'
+        />
+      </div>
+
       <div className={styles.fullCommentContainer}>
         <h4>
-          Sandra Llewellyn{' '}
+          <Link href={`/u/${comment.author.username}`}>
+            <a>{comment.author.username}</a>
+          </Link>{' '}
           <span className={styles.timeAgoText}>hace 17 horas</span>
         </h4>
         <p className={styles.commentText}>

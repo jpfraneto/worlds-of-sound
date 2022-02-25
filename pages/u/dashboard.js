@@ -1,10 +1,10 @@
 import { getLayout } from '../../components/AccountLayout';
 
-const AccountDashboard = ({ userData }) => {
+const AccountDashboard = ({ session }) => {
   return (
     <div>
       <h2>Dashboard </h2>
-      <h4>Welcome back @{userData.username}</h4>
+      <p>Welcome back @{session.username}</p>
     </div>
   );
 };

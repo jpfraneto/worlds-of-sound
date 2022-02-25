@@ -9,7 +9,14 @@ SoundById.getLayout = getLayout;
 
 export async function getServerSideProps(context) {
   const res = await fetch(
-    `http://localhost:3000/api/sounds/id/${context.query.id}`
+    `http://localhost:3000/api/sounds/id/${context.query.id}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        cookie: context.req.headers.cookie,
+      },
+    }
   );
   const sound = await res.json();
   return {

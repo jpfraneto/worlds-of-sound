@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 import Link from 'next/link';
-import { AiFillPlayCircle } from 'react-icons/ai';
+import { AiFillPlayCircle, AiOutlineComment } from 'react-icons/ai';
 
 const SoundElementCard = ({ sound, setChosenElement }) => {
   return (
@@ -16,9 +16,17 @@ const SoundElementCard = ({ sound, setChosenElement }) => {
         </span>
       </div>
 
-      <Link href={`/sounds/id/${sound._id}`}>
-        <a className={styles.goToBtn}>Go to Page</a>
-      </Link>
+      <div className={styles.goToBtn}>
+        <Link href={`/sounds/id/${sound._id}`} passHref>
+          <a>Go to Page</a>
+        </Link>
+      </div>
+      <p>
+        <strong>
+          {' '}
+          <AiOutlineComment /> {sound.comments ? sound.comments.length : '0'}
+        </strong>
+      </p>
     </div>
   );
 };

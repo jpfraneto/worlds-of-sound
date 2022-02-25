@@ -1,5 +1,6 @@
 const { connectToDatabase } = require('../../../lib/mongodb');
 const ObjectId = require('mongodb').ObjectId;
+import { getSession } from 'next-auth/react';
 
 export default async function handler(req, res) {
   // switch the methods
@@ -29,6 +30,9 @@ const getSounds = async (req, res) => {
 };
 
 const addSound = async (req, res) => {
+  console.log('inside here, get the info for the current user');
+  const session = await getSession({ req });
+
   try {
     let { db } = await connectToDatabase();
     const response = await db.collection('sounds').insertOne(req.body);

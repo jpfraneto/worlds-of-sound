@@ -1,7 +1,9 @@
 import styles from './styles.module.css';
 import { useState } from 'react';
+import Image from 'next/image';
+import { createUniqueId } from '../../lib/functions';
 
-const SoundNewComment = ({ setComments, soundId }) => {
+const SoundNewComment = ({ setComments, soundId, author }) => {
   const [visible, setVisible] = useState(false);
   const [newComment, setNewComment] = useState('');
 
@@ -9,7 +11,7 @@ const SoundNewComment = ({ setComments, soundId }) => {
     const theNewComment = {
       text: newComment,
       date: new Date().getTime(),
-      author: 'jpfraneto',
+      id: createUniqueId(),
     };
     const reqParams = {
       method: 'POST',
@@ -21,16 +23,24 @@ const SoundNewComment = ({ setComments, soundId }) => {
       reqParams
     );
     const data = await response.json();
-    console.log('the data that came back is: ', data);
     if (data.success) {
       setNewComment('');
       setVisible(false);
+      theNewComment.author = author;
       setComments(prevComments => [theNewComment, ...prevComments]);
     }
   };
   return (
     <div className={styles.commentContainer}>
-      <img src='https://yt3.ggpht.com/5b5MRf7WDt9JZQJ__nDsK-78GJ9rTUIHo4OIA1DeyoMWa4mUOG2A-59K_BV2b9Ly9Q_dusPmOA=s88-c-k-c0x00ffffff-no-rj' />
+      <div className={styles.avatarImageContainer}>
+        <Image
+          width={50}
+          height={50}
+          alt='User Avatar Image'
+          src='https://yt3.ggpht.com/5b5MRf7WDt9JZQJ__nDsK-78GJ9rTUIHo4OIA1DeyoMWa4mUOG2A-59K_BV2b9Ly9Q_dusPmOA=s88-c-k-c0x00ffffff-no-rj'
+        />
+      </div>
+
       <div className={styles.fullCommentContainer}>
         <textarea
           placeholder='Add a new comment...'

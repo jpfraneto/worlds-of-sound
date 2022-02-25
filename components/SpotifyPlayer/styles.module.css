@@ -1,0 +1,27 @@
+.spotifyContainer {
+  text-align: center;
+  border: solid black 1px;
+  background-color: green;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.spotifyBtnContainer {
+  margin: 8px 0;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotifyBtn {
+  border: solid black 1px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin: 0 8px;
+  background-color: rgb(0, 99, 0);
+}
+
+.spotifyBtn:hover {
+  filter: brightness(85%);
+}

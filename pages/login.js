@@ -1,19 +1,25 @@
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { getProviders, signIn } from 'next-auth/react';
 
-export default function Login() {
-  const { data: session } = useSession();
-  if (session) {
-    return (
-      <>
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    );
-  }
+export default function SignIn({ providers }) {
   return (
     <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
+      {Object.values(providers).map(provider => (
+        <div key={provider.name}>
+          <button
+            onClick={() =>
+              signIn(provider.id, {
+                callbackUrl: `${window.location.origin}/protected`,
+              })
+            }
+          >
+            Sign in with {provider.name}
+          </button>
+        </div>
+      ))}
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  return { props: { providers: await getProviders() } };
 }

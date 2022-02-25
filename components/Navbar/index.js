@@ -18,7 +18,9 @@ const Navbar = () => {
 
   const handleSessionClick = () => {
     if (session) {
-      signOut();
+      signOut({
+        callbackUrl: `/`,
+      });
     } else {
       signIn();
     }
@@ -26,9 +28,9 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navContainer}>
-      <Link href='/'>
+      <Link href='/' passHref>
         <div className={styles.logoDiv}>
-          <Image src='/logo.png' width={60} height={60} />
+          <Image src='/logo.png' width={60} height={60} alt='Logo' />
           <a className={styles.logoLink}>Worlds of Sound</a>
         </div>
       </Link>

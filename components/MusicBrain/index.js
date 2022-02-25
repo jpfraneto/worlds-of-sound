@@ -4,21 +4,8 @@ import styles from './styles.module.css';
 const MusicBrain = () => {
   return (
     <div>
-      <h2>
-        Sound Brain{' '}
-        <span
-          className={`${styles.musicBtn} ${styles.soundcloud}`}
-          onClick={() => alert('soundcloud')}
-        >
-          <FaSoundcloud />
-        </span>
-        <span
-          className={`${styles.musicBtn} ${styles.youtube}`}
-          onClick={() => alert('youutbe')}
-        >
-          <FaYoutube />
-        </span>
-      </h2>
+      <h2>Sound Brain </h2>
+      <p>Here I'll display all the sounds that this person has shared</p>
     </div>
   );
 };

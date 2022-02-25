@@ -2,28 +2,12 @@ const { connectToDatabase } = require('../../../lib/mongodb');
 const ObjectId = require('mongodb').ObjectId;
 
 export default async function handler(req, res) {
-  // switch the methods
   switch (req.method) {
-    case 'GET': {
-      return getUser(req, res);
-    }
-
     case 'PUT': {
       return updateUser(req, res);
     }
-
-    case 'DELETE': {
-      return deleteUser(req, res);
-    }
   }
 }
-
-const getUser = async (req, res) => {
-  let { db } = await connectToDatabase();
-  const user = await db.collection('users').findOne({ email: req.query.email });
-  res.json(user);
-  //   return res.json(users);
-};
 
 const updateUser = async (req, res) => {
   let { db } = await connectToDatabase();

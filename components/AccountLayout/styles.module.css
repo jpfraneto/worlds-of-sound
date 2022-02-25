@@ -8,3 +8,8 @@
   width: 84%;
   padding: 8px;
 }
+
+.loaderContainer {
+  text-align: center;
+  color: black;
+}

@@ -1,12 +1,13 @@
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
+import styles from './styles.module.css';
 
 export default function AccessDenied() {
-  console.log('running the accessdenied function');
   return (
-    <>
+    <div className={styles.accessDeniedContainer}>
       <h1>Access Denied</h1>
-      <p>
+      <p>You must be signed in to view this page</p>
+      <div className={styles.signInBtn}>
         <Link href='/api/auth/signin'>
           <a
             onClick={e => {
@@ -14,10 +15,10 @@ export default function AccessDenied() {
               signIn();
             }}
           >
-            You must be signed in to view this page
+            Sign In
           </a>
         </Link>
-      </p>
-    </>
+      </div>
+    </div>
   );
 }

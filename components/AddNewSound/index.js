@@ -6,8 +6,12 @@ import Link from 'next/link';
 
 const AddNewSound = ({ type }) => {
   const [provider, setProvider] = useState('');
+
   const [url, setUrl] = useState('');
   const [description, setDescription] = useState('');
+  const [title, setTitle] = useState('30 Minute Kirtan Kriya. Full power.');
+  const [author, setAuthor] = useState('jpfraneto');
+
   const [serverMessage, setServerMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const handleProviderSelection = e => {
@@ -31,7 +35,7 @@ const AddNewSound = ({ type }) => {
     const reqParams = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url, provider, type, description }),
+      body: JSON.stringify({ url, provider, type, description, title, author }),
     };
     setLoading(true);
     const response = await fetch('/api/sounds', reqParams);

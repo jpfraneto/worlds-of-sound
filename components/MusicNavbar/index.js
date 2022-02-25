@@ -10,7 +10,7 @@ const MusicNavbar = () => {
     <div>
       <ul className={styles.soundsNav}>
         {soundtypes.map(soundtype => (
-          <MenuItems items={soundtype} key={soundtypes.id} />
+          <MenuItems items={soundtype} key={soundtype.id} />
         ))}
       </ul>
     </div>

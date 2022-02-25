@@ -1,8 +1,8 @@
 import { getLayout } from '../../components/AccountLayout';
 import { useState } from 'react';
 
-const AccountSettings = ({ userData, setUserData }) => {
-  const [userSettings, setUserSettings] = useState({ _id: userData._id });
+const AccountSettings = ({ session }) => {
+  const [userSettings, setUserSettings] = useState({ id: session.id });
   const handleChange = e => {
     setUserSettings(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -13,7 +13,7 @@ const AccountSettings = ({ userData, setUserData }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userSettings),
     };
-    const response = await fetch(`/api/users/${userData.email}`, reqParams);
+    const response = await fetch(`/api/users/${session.username}`, reqParams);
     const data = await response.json();
   };
 
@@ -29,7 +29,7 @@ const AccountSettings = ({ userData, setUserData }) => {
               id='soundcloudId'
               placeholder='Soundcloud ID'
               name='soundcloudId'
-              value={userData && userData.soundcloudId}
+              value={session.user && session.user.soundcloudId}
               onChange={handleChange}
             />
           </div>
@@ -41,7 +41,7 @@ const AccountSettings = ({ userData, setUserData }) => {
               id='youtubeId'
               placeholder='Youtube ID'
               name='youtubeId'
-              value={userData && userData.youtubeId}
+              value={session.user && session.user.youtubeId}
               onChange={handleChange}
             />
           </div>
@@ -53,7 +53,7 @@ const AccountSettings = ({ userData, setUserData }) => {
               id='username'
               placeholder='Username'
               name='username'
-              value={userData && userData.username}
+              value={session.username || ''}
               onChange={handleChange}
             />
           </div>

@@ -33,21 +33,19 @@ const MenuItems = ({ items }) => {
     <li
       className={styles.menuItems}
       ref={ref}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      // onMouseEnter={handleMouseEnter}
+      // onMouseLeave={handleMouseLeave}
     >
       {items.subgenres ? (
         <>
           <Link href={`/sounds/${items.type}`}>
-            <a>
-              <h2
-                type='button'
-                aria-haspopup='menu'
-                aria-expanded={dropdown ? 'true' : 'false'}
-                onClick={() => setDropdown(prev => !prev)}
-              >
-                {items.type}
-              </h2>
+            <a
+              type='button'
+              aria-haspopup='menu'
+              aria-expanded={dropdown ? 'true' : 'false'}
+              // onClick={() => setDropdown(prev => !prev)}
+            >
+              {items.type}
             </a>
           </Link>
 

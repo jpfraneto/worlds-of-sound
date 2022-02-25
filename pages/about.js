@@ -5,7 +5,11 @@ const About = () => {
   return (
     <main className={styles.aboutMainContainer}>
       <div className={styles.aboutImageContainer}>
-        <Image src='/images/ozora.jpg' layout='fill' />
+        <Image
+          src='/images/ozora.jpg'
+          layout='fill'
+          alt='Ozora Main Stage Spaceship'
+        />
       </div>
       <div className={styles.aboutTextContainer}>
         <p>Here, we celebrate humanity.</p>

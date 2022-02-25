@@ -1,5 +1,6 @@
 const { connectToDatabase } = require('../../../../../lib/mongodb');
 const ObjectId = require('mongodb').ObjectId;
+import { getSession } from 'next-auth/react';
 
 export default async function handler(req, res) {
   // switch the methods

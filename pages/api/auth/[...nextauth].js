@@ -32,9 +32,14 @@ export default NextAuth({
     },
     redirect: async (url, _baseUrl) => {
       if (url === '/profile') {
-        return Promise.resolve('/u/dashboard');
+        return Promise.resolve('');
       }
-      return Promise.resolve('/u/dashboard');
+      return Promise.resolve('/');
+    },
+    session: async session => {
+      session.session.id = session.user.id;
+      session.session.username = session.user.username;
+      return Promise.resolve(session.session);
     },
   },
 });
