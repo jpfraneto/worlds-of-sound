@@ -30,12 +30,28 @@ const getSounds = async (req, res) => {
 };
 
 const addSound = async (req, res) => {
-  console.log('inside here, get the info for the current user');
   const session = await getSession({ req });
-
+  if (!session)
+    return res.json({
+      message: 'You need to be an authenticated user to add a new sound',
+      success: false,
+    });
   try {
     let { db } = await connectToDatabase();
-    const response = await db.collection('sounds').insertOne(req.body);
+    const newSound = req.body;
+    newSound.author = {
+      username: session.username,
+      id: session.id,
+    };
+    const response = await db.collection('sounds').insertOne(newSound);
+    const userResponse = await db.collection('users').updateOne(
+      {
+        _id: ObjectId(session.id),
+      },
+      { $push: { sounds: req.body } }
+    );
+    if (!response || !userResponse)
+      throw new Error('There was a problem adding the new sound.');
     return res.json({
       message: 'The sound was added successfully to the Worlds of Sound',
       success: true,

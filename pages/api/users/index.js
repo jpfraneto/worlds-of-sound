@@ -9,7 +9,6 @@ export default async function handler(req, res) {
     }
 
     case 'POST': {
-      console.log('inside the post route', req.body);
       return addUser(req, res);
     }
 
@@ -47,7 +46,6 @@ const addUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   let { db } = await connectToDatabase();
-  console.log('inside the update User route', req.body);
   await db.collection('users').updateOne(
     {
       username: req.body.username,

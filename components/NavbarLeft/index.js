@@ -5,7 +5,6 @@ import { GrSettingsOption } from 'react-icons/gr';
 import { SiMusicbrainz } from 'react-icons/si';
 
 const NavbarLeft = ({ session }) => {
-  console.log('INSIDE THE NAVBAR LEFT, THE SESSION IS: ', session);
   return (
     <div className={styles.leftNav}>
       <div className={styles.topContainer}>

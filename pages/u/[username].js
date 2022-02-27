@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
 import SoundsListDisplay from '../../components/SoundsListDisplay';
 
-const UsernamePage = ({ userMusic }) => {
+const UsernamePage = ({ userSounds }) => {
+  console.log('the user sounds are: ', userSounds);
   const router = useRouter();
-  console.log('the user music is: ', userMusic);
   return (
     <>
       <h2>Here goes the page for @{router.query.username}</h2>
-      <SoundsListDisplay sounds={userMusic} />
+      <SoundsListDisplay sounds={userSounds} />
     </>
   );
 };
@@ -17,8 +17,9 @@ export async function getServerSideProps(context) {
     `http://localhost:3000/api/users/${context.query.username}/sounds`
   );
   const user = await response.json();
+  console.log('the user is: , ', user);
   return {
-    props: { userMusic: user.user.music },
+    props: { userSounds: user.user.sounds || [] },
   };
 }
 

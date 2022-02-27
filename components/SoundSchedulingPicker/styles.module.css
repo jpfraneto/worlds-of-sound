@@ -1,0 +1,7 @@
+.soundsPickerContainer {
+  background-color: blue;
+  border: solid black 1px;
+  padding: 8px;
+  width: fit-content;
+  margin: 8px 0;
+}

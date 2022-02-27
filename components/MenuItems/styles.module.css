@@ -1,3 +1,8 @@
+.menuItems {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 .menuItems h2:hover {
   color: var(--third);
 }

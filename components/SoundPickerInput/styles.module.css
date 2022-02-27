@@ -1,0 +1,10 @@
+.pickerInput {
+  background-color: red;
+  border: solid black 3px;
+  padding: 3px;
+}
+
+.pickerInput input {
+  margin: 0 12px;
+  width: 333px;
+}

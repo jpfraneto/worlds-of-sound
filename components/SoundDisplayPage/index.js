@@ -5,6 +5,7 @@ import styles from './styles.module.css';
 import Link from 'next/link';
 
 const SoundDisplayPage = ({ sound }) => {
+  console.log('THE SOUND IS: ', sound);
   return (
     <div className={styles.mainContainer}>
       <div className={styles.playerContainer}>
@@ -20,8 +21,10 @@ const SoundDisplayPage = ({ sound }) => {
           <p>
             <strong>
               {' '}
-              <Link href={`/u/${sound.author}`}>
-                <a>{sound.author}</a>
+              <Link
+                href={`/u/${sound.author ? sound.author.username : 'chocapec'}`}
+              >
+                <a>{sound.author && sound.author.username}</a>
               </Link>
             </strong>
           </p>
