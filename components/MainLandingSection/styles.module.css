@@ -1,0 +1,21 @@
+.firstSection {
+  position: relative;
+}
+
+.sectionContainer {
+  margin: 0 auto;
+  width: 88%;
+  height: var(--section-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.element {
+  position: absolute;
+  font-size: 1.6rem;
+}
+
+.element:hover {
+  cursor: pointer;
+}

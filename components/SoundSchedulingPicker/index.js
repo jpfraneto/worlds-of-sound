@@ -1,10 +1,11 @@
 import styles from './styles.module.css';
 import { useState } from 'react';
 import SoundPickerInput from '../SoundPickerInput';
+import { createUniqueId } from '../../lib/functions';
 
 const SoundSchedulingPicker = ({ pickedSounds, setPickedSounds }) => {
   const handleAddNewSound = () => {
-    setPickedSounds(prev => [...prev, {}]);
+    setPickedSounds(prev => [...prev, { id: createUniqueId(), url: '' }]);
   };
   return (
     <div className={styles.soundsPickerContainer}>
@@ -12,20 +13,20 @@ const SoundSchedulingPicker = ({ pickedSounds, setPickedSounds }) => {
       {pickedSounds.map((sound, index) => {
         return (
           <SoundPickerInput
-            key={index}
+            key={sound.id}
+            thisSound={sound}
             pickedSounds={pickedSounds}
             setPickedSounds={setPickedSounds}
           />
         );
       })}
-      <button type='button' onClick={handleAddNewSound}>
-        Add Sound
-      </button>
+
       <button
+        className={styles.addNewSoundBtn}
         type='button'
-        onClick={() => console.log('the picked sounds are: ', pickedSounds)}
+        onClick={handleAddNewSound}
       >
-        Console
+        +
       </button>
     </div>
   );

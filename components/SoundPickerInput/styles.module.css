@@ -1,10 +1,31 @@
 .pickerInput {
-  background-color: red;
+  background-color: var(--seconda);
   border: solid black 3px;
-  padding: 3px;
+  padding: 0;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
 }
 
 .pickerInput input {
-  margin: 0 12px;
-  width: 333px;
+  width: 444px;
+  background-color: var(--primary);
+  height: 30px;
+  border: none;
+  padding: 0 8px;
+}
+
+.pickerInput input::placeholder {
+  color: black;
+}
+
+.pickerInput button {
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  font-size: 1.6rem;
+}
+
+.pickerInput button:hover {
+  cursor: pointer;
 }

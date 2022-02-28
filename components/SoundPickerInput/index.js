@@ -1,9 +1,8 @@
 import styles from './styles.module.css';
 import { useState } from 'react';
-import { createUniqueId } from '../../lib/functions';
+import { getSoundProvider } from '../../lib/functions';
 
-const SoundPickerInput = ({ pickedSounds, setPickedSounds }) => {
-  const [thisSound, setThisSound] = useState({ id: createUniqueId(), url: '' });
+const SoundPickerInput = ({ thisSound, setPickedSounds }) => {
   const deleteThisSound = () => {
     setPickedSounds(prev => {
       const filtered = prev.filter(el => el.id != thisSound.id);
@@ -11,7 +10,13 @@ const SoundPickerInput = ({ pickedSounds, setPickedSounds }) => {
     });
   };
   const handleSoundChange = e => {
-    setThisSound(prev => ({ ...prev, url: e.target.value }));
+    setPickedSounds(prevPickedSounds => {
+      const thisSoundIndex = prevPickedSounds.indexOf(thisSound);
+      prevPickedSounds[thisSoundIndex].url = e.target.value;
+      const provider = getSoundProvider(e.target.value);
+      if (provider) prevPickedSounds[thisSoundIndex].provider = provider;
+      return prevPickedSounds;
+    });
   };
   const addSoundToSchedule = e => {
     //Update the picked sounds with this new one.
@@ -19,14 +24,13 @@ const SoundPickerInput = ({ pickedSounds, setPickedSounds }) => {
   };
   return (
     <div className={styles.pickerInput}>
-      <label htmlFor='soundInput'>Add New Sound By Url</label>
       <input
+        autoFocus
         type='text'
         id='soundInput'
         placeholder='Add the url of the sound'
         name='url'
         onChange={handleSoundChange}
-        onBlur={addSoundToSchedule}
       />
       <button type='button' onClick={deleteThisSound}>
         ❎

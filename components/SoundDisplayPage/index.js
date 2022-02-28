@@ -12,7 +12,12 @@ const SoundDisplayPage = ({ sound }) => {
         {sound.provider === 'spotify' ? (
           <SpotifyPlayer url={sound.url} />
         ) : (
-          <ReactPlayer url={sound.url} controls={'true'} width='100%' />
+          <ReactPlayer
+            url={sound.url}
+            controls={'true'}
+            width='100%'
+            height='auto'
+          />
         )}
         <div className={styles.soundInformation}>
           <h3>DMT Breathing inspired by Wim Hof</h3>

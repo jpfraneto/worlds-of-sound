@@ -1,0 +1,23 @@
+.mainContainer {
+  margin: 20px auto;
+  width: 555px;
+  background-color: var(--primary);
+  padding: 8px;
+  border: solid black 1px;
+  text-align: center;
+  height: fit-content;
+}
+
+.randomSoundSchedule {
+  border: solid black 1px;
+  border-radius: 4px;
+  background-color: var(--secondary);
+  filter: brightness(85%);
+  font-size: 1.2rem;
+  margin-top: 10px;
+  padding: 4px;
+}
+
+.randomSoundSchedule:hover {
+  cursor: pointer;
+}

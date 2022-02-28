@@ -2,9 +2,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
+import MainLandingSection from '../components/MainLandingSection';
 import { useSession, signIn, signOut } from 'next-auth/react';
 
-export default function Home() {
+export default function Home({ scheduledDays }) {
   const { data: session } = useSession();
   return (
     <div className={styles.container}>
@@ -15,11 +16,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <section
-          className={`${styles.firstSection} ${styles.sectionContainer}`}
-        >
-          <h2>Worlds of Sound</h2>
-        </section>
+        <MainLandingSection scheduledDays={scheduledDays} />
         <section
           className={`${styles.secondSection} ${styles.sectionContainer}`}
         >
@@ -34,4 +31,12 @@ export default function Home() {
       </main>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const response = await fetch('http://localhost:3000/api/sounds/schedule');
+  const scheduledDays = await response.json();
+  return {
+    props: { scheduledDays },
+  };
 }

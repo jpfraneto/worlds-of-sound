@@ -1,7 +1,19 @@
 .soundsPickerContainer {
-  background-color: blue;
+  background-color: var(--primary);
   border: solid black 1px;
   padding: 8px;
   width: fit-content;
   margin: 8px 0;
+}
+
+.addNewSoundBtn {
+  font-size: 1.6rem;
+  border: none;
+  background-color: transparent;
+  margin-left: 0;
+}
+
+.addNewSoundBtn:hover {
+  cursor: pointer;
+  color: rgb(77, 77, 77);
 }
