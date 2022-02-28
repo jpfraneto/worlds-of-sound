@@ -11,7 +11,12 @@ const SpotifyPlayer = ({ url }) => {
       <div className={styles.spotifyBtnContainer}>
         <BsSpotify />
 
-        <a href={url} target='_blank' className={styles.spotifyBtn}>
+        <a
+          href={url}
+          target='_blank'
+          rel='noreferrer'
+          className={styles.spotifyBtn}
+        >
           Listen in Spotify
         </a>
         <BsSpotify />

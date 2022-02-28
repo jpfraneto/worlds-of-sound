@@ -6,7 +6,7 @@ const MusicBrain = () => {
     <div>
       <h2>Sound Brain </h2>
       <p>
-        This is for creating playlists so that I don't have to search for music
+        This is for creating playlists so that I dont have to search for music
         before getting into the deep work.
       </p>
       <SoundScheduling />
