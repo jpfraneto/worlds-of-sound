@@ -1,6 +1,7 @@
 const { connectToDatabase } = require('../../../lib/mongodb');
 const ObjectId = require('mongodb').ObjectId;
 import { getSession } from 'next-auth/react';
+import { getSoundInformation } from '../../../lib/functions';
 
 export default async function handler(req, res) {
   // switch the methods
@@ -38,25 +39,26 @@ const addSound = async (req, res) => {
     });
   try {
     let { db } = await connectToDatabase();
-    const newSound = req.body;
+    const newSound = await getSoundInformation(req.body);
     newSound.author = {
       username: session.username,
       id: session.id,
     };
-    const response = await db.collection('sounds').insertOne(newSound);
-    const userResponse = await db.collection('users').updateOne(
-      {
-        _id: ObjectId(session.id),
-      },
-      { $push: { sounds: req.body } }
-    );
-    if (!response || !userResponse)
-      throw new Error('There was a problem adding the new sound.');
-    return res.json({
-      message: 'The sound was added successfully to the Worlds of Sound',
-      success: true,
-      soundId: response.insertedId,
-    });
+    console.log('here!!!, the new sound is: ', newSound);
+    // const response = await db.collection('sounds').insertOne(newSound);
+    // const userResponse = await db.collection('users').updateOne(
+    //   {
+    //     _id: ObjectId(session.id),
+    //   },
+    //   { $push: { sounds: req.body } }
+    // );
+    // if (!response || !userResponse)
+    //   throw new Error('There was a problem adding the new sound.');
+    // return res.json({
+    //   message: 'The sound was added successfully to the Worlds of Sound',
+    //   success: true,
+    //   soundId: response.insertedId,
+    // });
   } catch (error) {
     return res.json({
       message: new Error(error).message,

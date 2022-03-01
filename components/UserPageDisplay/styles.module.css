@@ -1,0 +1,21 @@
+.mainContainer {
+  width: 100%;
+  height: calc(100vh - 111px);
+  background-color: aqua;
+  display: flex;
+  text-align: center;
+}
+
+.leftContainer {
+  background-color: var(--primary);
+  width: 50%;
+  overflow-y: scroll;
+  border-right: solid black 8px;
+}
+
+.rightContainer {
+  background-color: var(--secondary);
+  width: 50%;
+  border-left: solid black 8px;
+  overflow-y: scroll;
+}

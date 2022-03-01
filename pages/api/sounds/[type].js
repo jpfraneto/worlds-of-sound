@@ -6,7 +6,6 @@ export default async function handler(req, res) {
   // switch the methods
   switch (req.method) {
     case 'GET': {
-      console.log('esto es lo que pasó');
       return getSoundsByType(req, res);
     }
 
@@ -30,6 +29,5 @@ const getSoundsByType = async (req, res) => {
     .collection('sounds')
     .find({ type: req.query.type })
     .toArray();
-  console.log('THE SOUNDS ARE: ', sounds);
   return res.json(sounds);
 };

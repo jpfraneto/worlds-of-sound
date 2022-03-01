@@ -3,11 +3,13 @@ import styles from './styles.module.css';
 import Loader from '../Loader';
 import { useState } from 'react';
 import Link from 'next/link';
+import { getSoundProvider, getSoundId } from '../../lib/functions';
 
 const AddNewSound = ({ type }) => {
   const [provider, setProvider] = useState('');
-
+  const [soundId, setSoundId] = useState('');
   const [url, setUrl] = useState('');
+
   const [description, setDescription] = useState('');
   const [title, setTitle] = useState('30 Minute Kirtan Kriya. Full power.');
   const [author, setAuthor] = useState('jpfraneto');
@@ -28,6 +30,16 @@ const AddNewSound = ({ type }) => {
       return 'https://soundcloud.com/monada-project/monada-brahma-007-andi-from-the-leipzig-tribe-of-peace-faith-we-are-circeling';
   };
 
+  const handleUrlChange = async e => {
+    const url = e.target.value;
+    const provider = getSoundProvider(url);
+    const thisSoundId = await getSoundId(provider, url);
+    if (!provider) return setProvider('');
+    if (provider) setProvider(provider);
+    setSoundId(thisSoundId);
+    return setUrl(e.target.value);
+  };
+
   const submitSound = async () => {
     if (!url) {
       return alert('Please add a valid url!');
@@ -35,13 +47,21 @@ const AddNewSound = ({ type }) => {
     const reqParams = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url, provider, type, description, title, author }),
+      body: JSON.stringify({
+        url,
+        provider,
+        soundId,
+        type,
+        description,
+        title,
+        author,
+      }),
     };
-    setLoading(true);
+    // setLoading(true);
     const response = await fetch('/api/sounds', reqParams);
-    const data = await response.json();
-    setLoading(false);
-    return setServerMessage(data);
+    // const data = await response.json();
+    // setLoading(false);
+    // return setServerMessage(data);
   };
 
   return (
@@ -69,7 +89,7 @@ const AddNewSound = ({ type }) => {
             type='text'
             id='url'
             name='url'
-            onChange={e => setUrl(e.target.value)}
+            onChange={handleUrlChange}
             placeholder={providerPlacerholder()}
           />
         </div>

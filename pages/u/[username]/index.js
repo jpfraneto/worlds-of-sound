@@ -1,30 +1,26 @@
-// import { useRouter } from 'next/router';
-// import SoundsListDisplay from '../../../components/SoundsListDisplay';
+import { useRouter } from 'next/router';
+import UserPageDisplay from '../../../components/UserPageDisplay';
 
-// const UsernamePage = ({ userSounds }) => {
-//   const router = useRouter();
-//   return (
-//     <>
-//       <h2>Here goes the page for @{router.query.username}</h2>
-//       <SoundsListDisplay sounds={userSounds} />
-//     </>
-//   );
-// };
-
-// export async function getServerSideProps(context) {
-//   const response = await fetch(
-//     `http://localhost:3000/api/users/${context.query.username}/sounds`
-//   );
-//   const user = await response.json();
-//   return {
-//     props: { userSounds: user.user.sounds || [] },
-//   };
-// }
-
-// export default UsernamePage;
-
-const UsernamePage = () => {
-  return <p>Your page</p>;
+const UsernamePage = ({ user }) => {
+  console.log('in here, the user is: ', user);
+  const router = useRouter();
+  return (
+    <UserPageDisplay
+      sounds={user.sounds}
+      scheduledSounds={user.scheduledSounds}
+    />
+  );
 };
+
+export async function getServerSideProps(context) {
+  const response = await fetch(
+    `http://localhost:3000/api/users/${context.query.username}/sounds`
+  );
+  const user = await response.json();
+  console.log('the user is: ', user);
+  return {
+    props: { user: user.user },
+  };
+}
 
 export default UsernamePage;

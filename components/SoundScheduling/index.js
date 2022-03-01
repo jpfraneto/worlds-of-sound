@@ -32,7 +32,6 @@ const SoundScheduling = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...newSoundsSchedule, pickedSounds }),
     };
-    console.log('now ill fetch the db with this info: ', reqParams);
     const response = await fetch(`/api/sounds/schedule`, reqParams);
     const data = await response.json();
     router.push(`/u/${data.username}/scheduled/${data.soundId}`);

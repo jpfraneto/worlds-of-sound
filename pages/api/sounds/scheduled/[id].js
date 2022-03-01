@@ -5,7 +5,6 @@ export default async function handler(req, res) {
   // switch the methods
   switch (req.method) {
     case 'GET': {
-      console.log('waijslcajsncas');
       return getSoundById(req, res);
     }
 
@@ -28,6 +27,5 @@ const getSoundById = async (req, res) => {
   const scheduledSound = await db
     .collection('scheduledSounds')
     .findOne({ _id: new ObjectId(req.query.id) });
-  console.log('the scheduledSound is: ', scheduledSound);
   return res.json(scheduledSound);
 };
