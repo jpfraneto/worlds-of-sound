@@ -8,8 +8,10 @@ const SoundById = ({ sound }) => {
 SoundById.getLayout = getLayout;
 
 export async function getServerSideProps(context) {
-  const res = await fetch(
-    `http://localhost:3000/api/sounds/id/${context.query.id}`,
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
+  const response = await fetch(
+    `${dev ? DEV_URL : PROD_URL}/api/sounds/id/${context.query.id}`,
     {
       method: 'GET',
       headers: {
@@ -18,7 +20,7 @@ export async function getServerSideProps(context) {
       },
     }
   );
-  const sound = await res.json();
+  const sound = await response.json();
   return {
     props: { sound },
   };

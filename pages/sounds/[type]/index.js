@@ -67,8 +67,10 @@ const SoundTypePage = ({ sounds }) => {
 SoundTypePage.getLayout = getLayout;
 
 export async function getServerSideProps(context) {
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
   const res = await fetch(
-    `http://localhost:3000/api/sounds/${context.query.type}`
+    `${dev ? DEV_URL : PROD_URL}/api/sounds/${context.query.type}`
   );
   const sounds = await res.json();
   return {

@@ -8,8 +8,10 @@ const UserScheduledSoundById = ({ scheduledSound }) => {
 };
 
 export async function getServerSideProps(context) {
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
   const response = await fetch(
-    `http://localhost:3000/api/sounds/scheduled/${context.query.id}`
+    `${dev ? DEV_URL : PROD_URL}/api/sounds/scheduled/${context.query.id}`
   );
   const scheduledSound = await response.json();
   return {

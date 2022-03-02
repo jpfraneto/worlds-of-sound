@@ -34,7 +34,11 @@ export default function Home({ scheduledDays }) {
 }
 
 export async function getServerSideProps() {
-  const response = await fetch('http://localhost:3000/api/sounds/schedule');
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
+  const response = await fetch(
+    `${dev ? DEV_URL : PROD_URL}/api/sounds/schedule`
+  );
   const scheduledDays = await response.json();
   return {
     props: { scheduledDays },

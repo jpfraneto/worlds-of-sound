@@ -13,11 +13,12 @@ const UsernamePage = ({ user }) => {
 };
 
 export async function getServerSideProps(context) {
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
   const response = await fetch(
-    `http://localhost:3000/api/users/${context.query.username}/sounds`
+    `${dev ? DEV_URL : PROD_URL}/api/users/${context.query.username}/sounds`
   );
   const user = await response.json();
-  console.log('the user is: ', user);
   return {
     props: { user: user.user },
   };

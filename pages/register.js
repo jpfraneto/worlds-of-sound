@@ -64,7 +64,9 @@ export default function Register({ users }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/api/users');
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
+  const res = await fetch(`${dev ? DEV_URL : PROD_URL}/api/users`);
   const users = await res.json();
   return {
     props: { users },
