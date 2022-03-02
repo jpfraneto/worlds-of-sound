@@ -23,8 +23,9 @@
 .innerSoundsContainer {
   display: flex;
   overflow-x: scroll;
-  width: 80%;
+  width: 100%;
   height: 140px;
+  margin-bottom: 10px;
 }
 
 .playerContainer {

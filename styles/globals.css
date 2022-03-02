@@ -1,8 +1,9 @@
 :root {
-  --primary: #ff008e;
-  --secondary: #d22779;
-  --third: #612897;
-  --fourth: #0c1e7f;
+  --primary: #c33c54;
+  --secondary: #8ee3ef;
+  --third: #12355b;
+  --fourth: #aef3e7;
+  --fifth: #514b23;
   --white-txt: #fff;
   --section-height: calc(100vh - 111px);
 }

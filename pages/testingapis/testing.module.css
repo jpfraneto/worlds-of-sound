@@ -1,0 +1,37 @@
+.centerDiv {
+  width: 100%;
+  height: calc(100vh - 111px);
+  padding: 8px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  background: linear-gradient(to bottom right, #1e1223 0, #110915 50%, #0d0717);
+}
+
+.topNavbar {
+  width: 100%;
+  padding: 0 80px;
+  color: pink;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topNavbar > * {
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.connectSpotifyBtn {
+  background-color: white;
+}
+
+.logoutSpotifyBtn {
+  border: solid red 1px;
+  color: red;
+  background-color: transparent;
+}

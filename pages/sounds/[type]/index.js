@@ -7,8 +7,6 @@ import Link from 'next/link';
 import ReactPlayer from 'react-player';
 import SpotifyPlayer from '../../../components/SpotifyPlayer';
 
-const elements = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-
 const SoundTypePage = ({ sounds }) => {
   const [chosenElement, setChosenElement] = useState(null);
   const router = useRouter();
