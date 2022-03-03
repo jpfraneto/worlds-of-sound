@@ -1,0 +1,55 @@
+.trackInformation {
+  display: flex;
+  flex-direction: column;
+}
+.mainWrapper {
+  color: white;
+}
+
+.mainContainer {
+  flex: 1;
+}
+
+.nowPlaying__name {
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
+
+.nowPlaying__artist {
+  margin-bottom: 1em;
+}
+
+.nowPlaying__status {
+  margin-bottom: 1em;
+}
+
+.nowPlaying__cover {
+  border-radius: 8px;
+  float: left;
+  margin-right: 10px;
+  text-align: right;
+  width: 300px;
+  height: 300px;
+}
+
+.nowPlaying__side {
+  margin-left: 2%;
+  width: 45%;
+}
+
+.controlBtns {
+  margin: 8px;
+}
+
+.controlBtns button {
+  background-color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: none;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.controlBtns button:active {
+  transform: translateY(-2px);
+}

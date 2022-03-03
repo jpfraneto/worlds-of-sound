@@ -28,7 +28,7 @@ const MainLandingSection = ({ scheduledDays }) => {
           key={index}
           onClick={() =>
             router.push(
-              `/u/${scheduledDay.author.username}/scheduledSounds/${scheduledDay._id}`
+              `/u/${scheduledDay.author.username}/scheduled/${scheduledDay._id}`
             )
           }
         >
