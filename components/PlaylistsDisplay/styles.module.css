@@ -1,0 +1,4 @@
+.playlistDisplayContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

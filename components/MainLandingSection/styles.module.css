@@ -5,7 +5,7 @@
 .sectionContainer {
   margin: 0 auto;
   width: 88%;
-  height: var(--section-height);
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;

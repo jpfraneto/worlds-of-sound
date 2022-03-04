@@ -2,8 +2,10 @@ import styles from './styles.module.css';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const ScheduledSoundDisplay = ({ scheduledSound }) => {
+  console.log('the scheduled sound is: ', scheduledSound);
   const router = useRouter();
   const [playingSound, setPlayingSound] = useState({});
   const handleRandomSchedule = () => {
@@ -25,17 +27,12 @@ const ScheduledSoundDisplay = ({ scheduledSound }) => {
           <ReactPlayer
             className={styles.reactPlayer}
             width='100%'
+            height='auto'
             controls={'true'}
             url={playingSound.url}
           />
         )}
       </div>
-      <button
-        className={styles.randomSoundSchedule}
-        onClick={handleRandomSchedule}
-      >
-        Get a new random sound schedule
-      </button>
     </div>
   );
 };

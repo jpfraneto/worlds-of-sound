@@ -1,0 +1,53 @@
+.mainContainer {
+  width: 100%;
+  height: var(--section-height);
+  padding: 20px 10px;
+  display: flex;
+}
+
+.allPlaylistsContainer {
+  width: 70%;
+  height: 100%;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+.playlistForDisplayContainer {
+  width: 30%;
+  padding: 15px 7px;
+  text-align: center;
+}
+
+.addNewPlaylistBtn {
+  background-color: black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+  border: white 1px solid;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.addNewPlaylistBtn:hover {
+  transform: translateY(-2px);
+}
+
+.addNewPlaylistBtn {
+  display: inline-block;
+}
+
+.addNewPlaylistBtn:hover {
+  transform: translateY(-2px);
+}
+
+.addNewPlaylistBtn:active {
+  transform: translateY(-1px);
+}
+
+.green {
+  background-color: rgb(9, 82, 9);
+}
+
+.red {
+  background-color: rgb(122, 27, 27);
+}

@@ -13,7 +13,6 @@ export default async function handler(req, res) {
 }
 
 const handleGetRequest = async (req, res) => {
-  console.log(req.query);
   switch (req.query.requesttype) {
     case 'savedalbums': {
       const response = await getUserSavedAlbums(req.query.token);

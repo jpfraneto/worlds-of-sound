@@ -29,12 +29,20 @@ const Navbar = () => {
   return (
     <nav className={styles.navContainer}>
       <Link href='/' passHref>
-        <div className={styles.logoDiv}>
-          <Image src='/logo.png' width={60} height={60} alt='Logo' />
-          <a className={styles.logoLink}>Worlds of Sound</a>
+        <div className={styles.wholeLogoContainer}>
+          <div className={styles.logoDiv}>
+            <Image src='/logo.png' width={60} height={60} alt='Logo' />
+            <a className={styles.logoLink}>Worlds of Sound</a>
+          </div>
+          <p>Awakening you</p>
         </div>
       </Link>
       <ul className={styles.itemsList}>
+        <li className={styles.navElement}>
+          <Link href='/playlists'>
+            <a>Playlists</a>
+          </Link>
+        </li>
         <li className={styles.navElement}>
           <Link href='/sounds'>
             <a>Sounds</a>

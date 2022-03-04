@@ -1,7 +1,6 @@
 import ScheduledSoundDisplay from '../../../components/ScheduledSoundDisplay';
 
 const ScheduledSound = ({ scheduledSound }) => {
-  console.log('IIIN HERE, THE SCHEDULED SOUND IS: ', scheduledSound);
   return <ScheduledSoundDisplay scheduledSound={scheduledSound} />;
 };
 

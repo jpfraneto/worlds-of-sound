@@ -1,7 +1,7 @@
 .navContainer {
   width: 100%;
   padding: 0 22px;
-  height: 111px;
+  height: 88px;
   background-color: white;
   display: flex;
   justify-content: space-between;
@@ -21,6 +21,17 @@
   border: 1px solid black;
   border-top: 0;
   text-align: center;
+}
+
+.wholeLogoContainer {
+  position: relative;
+}
+
+.wholeLogoContainer p {
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .logoDiv {
@@ -76,4 +87,13 @@
 
 .logoutBtn {
   background-color: rgb(221, 61, 61);
+}
+
+@media only screen and (max-width: 900px) {
+  .logoLink {
+    display: none;
+  }
+  .wholeLogoContainer p {
+    display: none;
+  }
 }

@@ -1,11 +1,12 @@
 .mainContainer {
   margin: 20px auto;
-  width: 555px;
+  width: 88%;
   background-color: var(--primary);
   padding: 8px;
   border: solid black 1px;
   text-align: center;
   height: fit-content;
+  border-radius: 8px;
 }
 
 .randomSoundSchedule {

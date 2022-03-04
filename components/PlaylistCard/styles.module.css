@@ -1,0 +1,18 @@
+.playlistCardContainer {
+  overflow-x: scroll;
+  display: inline-block;
+  text-align: center;
+  margin: 0 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: var(--primary);
+  cursor: pointer;
+  border: solid black 2px;
+}
+
+.numberOfSounds {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
