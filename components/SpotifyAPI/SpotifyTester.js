@@ -45,6 +45,7 @@ const SpotifyTester = ({}) => {
           {userAlbums &&
             userAlbums.map(album => (
               <Image
+                alt='image'
                 key={album.album.id}
                 width={100}
                 height={100}
@@ -64,6 +65,7 @@ const SpotifyTester = ({}) => {
                 <Image
                   width={400}
                   height={400}
+                  alt='image'
                   src={playingAlbum?.album?.images[0].url}
                 />
               )}
@@ -73,7 +75,7 @@ const SpotifyTester = ({}) => {
                 <h2>{playingAlbum?.album?.name}</h2>
                 <h5>
                   {playingAlbum.album?.artists.map(artist => (
-                    <span>{artist.name} </span>
+                    <span key={artist.id}>{artist.name} </span>
                   ))}
                 </h5>
                 <div className={styles.albumTracklist}>
@@ -84,6 +86,7 @@ const SpotifyTester = ({}) => {
                           console.log('the track clicked is :', track);
                           return setPlayingTrack(track);
                         }}
+                        key={index}
                       >
                         {index + 1}. {track.name} -{' '}
                         {msToTime(track.duration_ms)}

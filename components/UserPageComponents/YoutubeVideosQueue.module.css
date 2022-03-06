@@ -1,0 +1,5 @@
+.queuedVideosContainer {
+  overflow-y: scroll;
+  height: 85%;
+  text-align: center;
+}

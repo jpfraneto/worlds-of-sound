@@ -1,0 +1,4 @@
+.queuedAlbumsContainer {
+  overflow-y: scroll;
+  height: 85%;
+}

@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import UserPageDisplay from '../../../components/UserPageDisplay';
 
 const UsernamePage = ({ user }) => {
-  console.log('in here, the user is: ', user);
   const router = useRouter();
   return (
     <UserPageDisplay

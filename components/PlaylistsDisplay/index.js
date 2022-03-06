@@ -6,6 +6,7 @@ const PlaylistsDisplay = ({ playlists, setChosenPlaylist }) => {
     <div className={styles.playlistDisplayContainer}>
       {playlists.map(playlist => (
         <PlaylistCard
+          key={playlist._id}
           playlist={playlist}
           setChosenPlaylist={setChosenPlaylist}
         />

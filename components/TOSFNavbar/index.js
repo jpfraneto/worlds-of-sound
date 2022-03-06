@@ -9,6 +9,7 @@ const TOSFNavbar = () => {
         className={styles.tosflink}
         href='http://www.theopensourcefactory.com'
         target='_blank'
+        rel='noreferrer'
       >
         The Open Source Factory
       </a>

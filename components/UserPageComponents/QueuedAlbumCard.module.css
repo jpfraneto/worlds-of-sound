@@ -1,0 +1,23 @@
+.albumCardContainer {
+  width: 80%;
+  text-align: center;
+  padding: 8px 12px;
+  border: solid black 1px;
+  overflow-y: scroll;
+  margin: 4px auto;
+  border-radius: 4px;
+  filter: brightness(85%);
+}
+
+.btnsContainer {
+  margin-top: 4px;
+}
+
+.btnsContainer a {
+  border: solid black 1px;
+  background-color: transparent;
+  margin: 2px 3px;
+  padding: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
