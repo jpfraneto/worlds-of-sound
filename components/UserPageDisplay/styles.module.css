@@ -1,21 +1,80 @@
 .mainContainer {
+  height: var(--section-height);
   width: 100%;
-  height: calc(100vh - 111px);
-  background-color: aqua;
   display: flex;
+  flex-direction: column;
+}
+
+.userInformationContainer {
+  width: 100%;
+  padding: 0 8px;
   text-align: center;
+  position: relative;
 }
 
-.leftContainer {
-  background-color: var(--primary);
-  width: 50%;
-  overflow-y: scroll;
-  border-right: solid black 8px;
+.newReviewBtn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: beige;
+  border-radius: 8px;
+  padding: 2px 7px;
+  cursor: pointer;
+  border: solid black 1px;
 }
 
-.rightContainer {
-  background-color: var(--secondary);
-  width: 50%;
-  border-left: solid black 8px;
-  overflow-y: scroll;
+.userSharesContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.servicePicker {
+  display: flex;
+}
+.spotifyPickerContainer {
+  background-color: #1db954;
+}
+
+.soundcloudPickerContainer {
+  background-color: #fe5000;
+}
+
+.youtubePickerContainer {
+  background-color: #ff0000;
+}
+
+.servicePicker div {
+  width: 100%;
+  text-align: center;
+  height: 44px;
+  font-size: 2rem;
+  justify-content: center;
+  padding-top: 5px;
+  border-bottom: solid black 3px;
+}
+
+.spotifyContainer {
+  background-color: #1db954;
+}
+
+.soundcloudContainer {
+  background-color: #fe5000;
+}
+
+.youtubeContainer {
+  background-color: #ff0000;
+}
+
+@media only screen and (min-width: 768px) {
+  .mainContainer {
+    flex-direction: row;
+  }
+  .userInformationContainer {
+    width: 40%;
+    height: 100%;
+    border-right: 2px solid black;
+  }
+  .userSharesContainer {
+    width: 60%;
+  }
 }

@@ -6,6 +6,7 @@ const UsernamePage = ({ user }) => {
   return (
     <UserPageDisplay
       sounds={user.sounds}
+      user={user}
       scheduledSounds={user.scheduledSounds}
     />
   );

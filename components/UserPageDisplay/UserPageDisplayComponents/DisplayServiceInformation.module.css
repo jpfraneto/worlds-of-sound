@@ -1,0 +1,17 @@
+.serviceDisplay {
+  height: calc(100% - 44px);
+  background-color: blue;
+}
+
+@media only screen and (min-width: 768px) {
+  .mainContainer {
+    flex-direction: row;
+  }
+  .userInformationContainer {
+    width: 40%;
+    height: 100%;
+  }
+  .userSharesContainer {
+    width: 60%;
+  }
+}

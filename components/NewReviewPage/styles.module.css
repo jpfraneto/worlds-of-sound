@@ -1,0 +1,12 @@
+.mainContainer {
+  width: 100%;
+  height: var(--section-height);
+  text-align: center;
+}
+
+.formElementContainer {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+}

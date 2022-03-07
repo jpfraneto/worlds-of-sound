@@ -11,7 +11,10 @@ const Ffraneto = () => {
   const [chosenService, setChosenService] = useState('');
   return (
     <div className={styles.container}>
-      <div className={styles.leftDiv}></div>
+      <div className={styles.leftDiv}>
+        <h2>ffraneto</h2>
+        <p>This is what is happening in my world</p>
+      </div>
       <div className={styles.rightDiv}>
         <div className={styles.servicePicker}>
           <div
@@ -33,38 +36,24 @@ const Ffraneto = () => {
             <AiFillYoutube />
           </div>
         </div>
-        {chosenService === 'spotify' && (
-          <div className={styles.spotifyContainer}>
-            <div className={styles.logoContainer}>
-              <h3>
-                <BsSpotify />
-              </h3>
+        <div className={styles.serviceDisplay}>
+          {chosenService === 'spotify' && (
+            <div className={styles.spotifyContainer}>
+              <SpotifyAlbumQueue />
             </div>
+          )}
 
-            <SpotifyAlbumQueue />
-          </div>
-        )}
-
-        {chosenService === 'soundcloud' && (
-          <div className={styles.soundcloudContainer}>
-            <div className={styles.logoContainer}>
-              <h3>
-                <FaSoundcloud />
-              </h3>
+          {chosenService === 'soundcloud' && (
+            <div className={styles.soundcloudContainer}>
+              <SoundcloudMusicQueue />
             </div>
-            <SoundcloudMusicQueue />
-          </div>
-        )}
-        {chosenService === 'youtube' && (
-          <div className={styles.youtubeContainer}>
-            <div className={styles.logoContainer}>
-              <h3>
-                <AiFillYoutube />
-              </h3>
+          )}
+          {chosenService === 'youtube' && (
+            <div className={styles.youtubeContainer}>
+              <YoutubeVideosQueue />
             </div>
-            <YoutubeVideosQueue />
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
