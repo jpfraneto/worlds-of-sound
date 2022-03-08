@@ -17,17 +17,14 @@ export default NextAuth({
   theme: {
     colorScheme: 'light',
   },
-  jwt: {
-    encryption: true,
-  },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async jwt(token, account) {
-      if (account?.accessToken) {
-        token.accessToken = account.accessToken;
-      }
-      return token;
-    },
+    // async jwt(token, account) {
+    //   if (account?.accessToken) {
+    //     token.accessToken = account.accessToken;
+    //   }
+    //   return token;
+    // },
     redirect: async (url, _baseUrl) => {
       if (url === '/profile') {
         return Promise.resolve('/');
