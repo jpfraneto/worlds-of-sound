@@ -20,6 +20,8 @@ export default function Home({ scheduledDays }) {
 
 export async function getServerSideProps() {
   let dev = process.env.VERCEL_ENV !== 'production';
+  //new commit
+
   let { DEV_URL, PROD_URL } = process.env;
   const response = await fetch(
     `${dev ? DEV_URL : PROD_URL}/api/sounds/schedule`
