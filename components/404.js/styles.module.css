@@ -1,0 +1,9 @@
+.mainContainer {
+  width: 44%;
+  margin: 0 auto;
+  text-align: center;
+  height: var(--section-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

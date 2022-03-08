@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
+import NonExisting from '../../../components/404.js';
 import UserPageDisplay from '../../../components/UserPageDisplay';
 
 const UsernamePage = ({ user }) => {
   const router = useRouter();
+  if (!user) return <NonExisting />;
   return (
     <UserPageDisplay
       sounds={user.sounds}

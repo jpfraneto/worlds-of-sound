@@ -1,7 +1,5 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import GithubProvider from 'next-auth/providers/github';
-import SpotifyProvider from 'next-auth/providers/spotify';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 import clientPromise from '../../../lib/mongodb';
 
@@ -32,7 +30,7 @@ export default NextAuth({
     },
     redirect: async (url, _baseUrl) => {
       if (url === '/profile') {
-        return Promise.resolve('');
+        return Promise.resolve('/');
       }
       return Promise.resolve('/');
     },

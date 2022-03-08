@@ -39,11 +39,6 @@ const Navbar = () => {
       </Link>
       <ul className={styles.itemsList}>
         <li className={styles.navElement}>
-          <Link href='/playlists'>
-            <a>Playlists</a>
-          </Link>
-        </li>
-        <li className={styles.navElement}>
           <Link href='/sounds'>
             <a>Sounds</a>
           </Link>
