@@ -18,3 +18,9 @@
 .tosflink:hover {
   color: yellowgreen;
 }
+
+@media only screen and (max-width: 888px) {
+  .bottomNav {
+    display: none;
+  }
+}
