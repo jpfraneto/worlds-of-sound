@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import ScheduledSoundDisplay from '../../../../components/ScheduledSoundDisplay';
 
 const UserScheduledSoundById = ({ scheduledSound }) => {
-  console.log('the scheduled sound is: ', scheduledSound);
   const router = useRouter();
   return <ScheduledSoundDisplay scheduledSound={scheduledSound} />;
 };

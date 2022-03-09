@@ -1,12 +1,16 @@
 .mainContainer {
   width: 400px;
-  height: calc(100vh - 111px);
+  height: fit-content;
+  padding: 88px 0;
+  background-color: var(--secondary);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 30px auto 0;
   text-align: center;
+  border: solid black 1px;
+  border-radius: 8px;
 }
 
 .providerBtnContainer {

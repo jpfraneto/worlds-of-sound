@@ -1,7 +1,7 @@
 import styles from './DisplayServiceInformation.module.css';
 import ServiceInformationList from './ServiceInformationList';
 
-const DisplayServiceInformation = ({ service }) => {
+const DisplayServiceInformation = ({ sounds, service }) => {
   const setBackgroundColor = serv => {
     switch (serv) {
       case 'spotify':
@@ -17,7 +17,7 @@ const DisplayServiceInformation = ({ service }) => {
       className={styles.serviceDisplay}
       style={{ backgroundColor: setBackgroundColor(service) }}
     >
-      <ServiceInformationList service={service} />
+      <ServiceInformationList sounds={sounds} service={service} />
     </div>
   );
 };

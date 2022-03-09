@@ -13,6 +13,7 @@ const AddNewSound = ({ type }) => {
   const [description, setDescription] = useState('');
   const [title, setTitle] = useState('30 Minute Kirtan Kriya. Full power.');
   const [author, setAuthor] = useState('jpfraneto');
+  const [rangeRating, setRangeRating] = useState(10);
 
   const [serverMessage, setServerMessage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -55,18 +56,19 @@ const AddNewSound = ({ type }) => {
         description,
         title,
         author,
+        rangeRating,
       }),
     };
-    // setLoading(true);
+    setLoading(true);
     const response = await fetch('/api/sounds', reqParams);
-    // const data = await response.json();
-    // setLoading(false);
-    // return setServerMessage(data);
+    const data = await response.json();
+    setLoading(false);
+    return setServerMessage(data);
   };
 
   return (
     <div className={styles.addNewSoundContainer}>
-      <h2>Add new {type}</h2>
+      <h2>Add New {type}</h2>
       <form>
         <div className={styles.hostedContainer}>
           <h3>Where is it hosted?</h3>
@@ -102,6 +104,26 @@ const AddNewSound = ({ type }) => {
             onChange={e => setDescription(e.target.value)}
             placeholder='Description...'
           />
+        </div>
+        <div className={styles.rangeContainer}>
+          <label htmlFor='feelingRange'>What is your feeling about it?</label>
+          <div className={styles.rangeMessagesContainer}>
+            <p>Horrible</p>
+            <div className={styles.sliderContainer}>
+              <input
+                id='feelingRange'
+                name='feelingRange'
+                type='range'
+                min='0'
+                max='100'
+                step='1'
+                value={rangeRating}
+                onChange={e => setRangeRating(e.target.value)}
+                className={styles.slider}
+              />
+            </div>
+            <p>Incredible</p>
+          </div>
         </div>
         {!serverMessage ? (
           <>

@@ -2,22 +2,24 @@ import styles from './ServiceInformationList.module.css';
 import ServiceInformationIndividualCard from './ServiceInformationIndividualCard';
 import SpotifyInformationCard from './SpotifyInformationCard';
 
-const ServiceInformationList = ({ service }) => {
+const ServiceInformationList = ({ sounds, service }) => {
   if (service === 'spotify') {
     return (
       <div className={styles.spotifyListContainer}>
-        <SpotifyInformationCard />
-        <SpotifyInformationCard />
-        <SpotifyInformationCard />
+        {sounds ? (
+          sounds.map(sound => <SpotifyInformationCard sound={sound} />)
+        ) : (
+          <h3>This user hasn't shared sounds from this provider yet</h3>
+        )}
       </div>
     );
   }
 
   return (
     <div className={styles.listContainer}>
-      <ServiceInformationIndividualCard />
-      <ServiceInformationIndividualCard />
-      <ServiceInformationIndividualCard />
+      {sounds.map(sound => (
+        <ServiceInformationIndividualCard sound={sound} />
+      ))}
     </div>
   );
 };

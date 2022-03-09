@@ -23,6 +23,12 @@ const SoundDisplayPage = ({ sound }) => {
 
       <div className={styles.soundInformation}>
         <h3>DMT Breathing inspired by Wim Hof</h3>
+        <p>
+          Shared by{' '}
+          <Link href={`/u/${sound.author.email}`}>
+            <a>{sound.author.email}</a>
+          </Link>
+        </p>
         <p>24 Febrero 2022</p>
         <hr />
         <p>
@@ -36,6 +42,7 @@ const SoundDisplayPage = ({ sound }) => {
           </strong>
         </p>
         <p>{sound.description}</p>
+        <p>{sound.rangeRating}/100</p>
       </div>
       <hr />
       <SoundCommentsSection

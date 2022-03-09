@@ -48,7 +48,7 @@ const updateUser = async (req, res) => {
   let { db } = await connectToDatabase();
   await db.collection('users').updateOne(
     {
-      username: req.body.username,
+      email: req.body.email,
     },
     { $push: { timestamps: req.body.timestamp } }
   );

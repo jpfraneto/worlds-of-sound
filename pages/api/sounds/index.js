@@ -41,24 +41,43 @@ const addSound = async (req, res) => {
     let { db } = await connectToDatabase();
     const newSound = await getSoundInformation(req.body);
     newSound.author = {
-      username: session.username,
+      email: session.user.email,
       id: session.id,
     };
-    console.log('here!!!, the new sound is: ', newSound);
-    // const response = await db.collection('sounds').insertOne(newSound);
-    // const userResponse = await db.collection('users').updateOne(
-    //   {
-    //     _id: ObjectId(session.id),
-    //   },
-    //   { $push: { sounds: req.body } }
-    // );
-    // if (!response || !userResponse)
-    //   throw new Error('There was a problem adding the new sound.');
-    // return res.json({
-    //   message: 'The sound was added successfully to the Worlds of Sound',
-    //   success: true,
-    //   soundId: response.insertedId,
-    // });
+    const response = await db.collection('sounds').insertOne(newSound);
+    let userResponse;
+    if (newSound.provider === 'youtube') {
+      userResponse = await db.collection('users').updateOne(
+        {
+          _id: ObjectId(session.id),
+        },
+        { $push: { youtube: req.body } }
+      );
+    }
+    if (newSound.provider === 'soundcloud') {
+      userResponse = await db.collection('users').updateOne(
+        {
+          _id: ObjectId(session.id),
+        },
+        { $push: { soundcloud: req.body } }
+      );
+    }
+    if (newSound.provider === 'spotify') {
+      userResponse = await db.collection('users').updateOne(
+        {
+          _id: ObjectId(session.id),
+        },
+        { $push: { spotify: req.body } }
+      );
+    }
+
+    if (!response || !userResponse)
+      throw new Error('There was a problem adding the new sound.');
+    return res.json({
+      message: 'The sound was added successfully to the Worlds of Sound',
+      success: true,
+      soundId: response.insertedId,
+    });
   } catch (error) {
     return res.json({
       message: new Error(error).message,

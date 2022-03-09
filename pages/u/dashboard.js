@@ -1,10 +1,13 @@
+import Link from 'next/link';
 import { getLayout } from '../../components/AccountLayout';
 
 const AccountDashboard = ({ session }) => {
   return (
     <div>
       <h2>Dashboard </h2>
-      <p>Welcome back @{session.username}</p>
+      <Link href={`/u/${session.user.email}`}>
+        <a>Go to my page!</a>
+      </Link>
     </div>
   );
 };

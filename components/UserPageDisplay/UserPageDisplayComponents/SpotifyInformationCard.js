@@ -2,8 +2,10 @@ import styles from './SpotifyInformationCard.module.css';
 import Image from 'next/image';
 import { FaCommentDots } from 'react-icons/fa';
 import { BiLike } from 'react-icons/bi';
+import { FcRating } from 'react-icons/fc';
+import Link from 'next/link';
 
-const SpotifyInformationCard = () => {
+const SpotifyInformationCard = ({ sound }) => {
   return (
     <div className={styles.albumCardContainer}>
       <Image
@@ -13,14 +15,12 @@ const SpotifyInformationCard = () => {
         alt='image'
       />
       <div className={styles.btnsContainer}>
-        <a
-          href='https://soundcloud.com/cosmovisionrecords/cosmocast-129-djjuliimmai-a-slower-speed-of-light?in=cosmovisionrecords/sets/cosmocast-mixtapes&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'
-          target='_blank'
-          rel='noreferrer'
-        >
+        <a href={sound.url} target='_blank' rel='noreferrer'>
           Listen
         </a>
-        <a>Visit</a>
+        <Link href={`/sounds/id/${sound._id}`}>
+          <a>Visit</a>
+        </Link>
       </div>
       <div className={styles.reactionsContainer}>
         <h4>
@@ -29,6 +29,9 @@ const SpotifyInformationCard = () => {
           </span>
           <span>
             12 <BiLike />
+          </span>
+          <span>
+            {sound.rangeRating}/100 <FcRating />
           </span>
         </h4>
       </div>

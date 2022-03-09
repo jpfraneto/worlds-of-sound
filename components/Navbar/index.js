@@ -34,7 +34,7 @@ const Navbar = () => {
             <Image src='/logo.png' width={60} height={60} alt='Logo' />
             <a className={styles.logoLink}>Worlds of Sound</a>
           </div>
-          <p>Your soundscapes center</p>
+          <p>Curating is Healing</p>
         </div>
       </Link>
       <ul className={styles.itemsList}>

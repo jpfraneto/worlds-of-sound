@@ -11,8 +11,6 @@ export default async function handler(req, res) {
 
 const getUserSounds = async (req, res) => {
   let { db } = await connectToDatabase();
-  const user = await db
-    .collection('users')
-    .findOne({ username: req.query.username });
+  const user = await db.collection('users').findOne({ email: req.query.email });
   return res.json({ user });
 };

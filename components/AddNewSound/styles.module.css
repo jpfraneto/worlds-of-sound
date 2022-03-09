@@ -48,8 +48,9 @@
   width: 88%;
   margin: 0 auto;
   padding: 2px 4px;
-  background-color: transparent;
+  background-color: white;
   border: solid black 0.5px;
+  border-radius: 8px;
   color: black;
 }
 
@@ -78,4 +79,66 @@
 
 .goToSoundBtn {
   background-color: var(--third);
+}
+
+.rangeContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.rangeMessagesContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rangeMessagesContainer > * {
+  margin: 0;
+}
+
+.sliderContainer {
+  margin-top: 8px;
+  width: 70%; /* Width of the outside container */
+  margin: 0 8px;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: var(--third); /* Grey background */
+  border-radius: 8px;
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+  border: solid black 1px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: var(--secondary); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 8px;
+  border: solid black 1px;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: var(--secondary); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 8px;
+  border: solid black 1px;
 }

@@ -7,45 +7,55 @@ import Link from 'next/link';
 import DisplayServiceInformation from './UserPageDisplayComponents/DisplayServiceInformation';
 
 const UserPageDisplay = ({ user }) => {
-  console.log(user);
+  console.log('the user is: ', user);
   const [chosenService, setChosenService] = useState('');
+  const [chosenSounds, setChosenSounds] = useState([]);
+  const handleChooseProvider = provider => {
+    setChosenService(provider);
+    setChosenSounds(user[provider]);
+  };
   return (
     <div className={styles.mainContainer}>
       <div className={styles.userInformationContainer}>
         <h2>{user.username}</h2>
         <p>{user.bio}</p>
-        <Link href={`/u/${user.username}/reviews/new`}>
-          <a className={styles.newReviewBtn}>Add Review</a>
+        <Link href={`/sounds/new`}>
+          <a className={styles.newReviewBtn}>Add Sound</a>
         </Link>
-        {/* <p>
-          Spotify: {user.reviews.spotify.length} | Soundcloud:{' '}
-          {user.reviews.soundcloud.length} | Youtube:{' '}
-          {user.reviews.youtube.length}{' '}
-        </p> */}
-        <p>Spotify: 12 | Soundcloud: 3 | Youtube: 2 </p>
+        <h4>{user.email}'s sounds</h4>
+        <p>
+          Spotify: {user.spotify?.length || 0} | Soundcloud:{' '}
+          {user.soundcloud?.length || 0} | Youtube:
+          {user.youtube?.length || 0}{' '}
+        </p>
       </div>
       <div className={styles.userSharesContainer}>
         <div className={styles.servicePicker}>
           <div
-            onClick={() => setChosenService('spotify')}
+            onClick={() => handleChooseProvider('spotify')}
             className={styles.spotifyPickerContainer}
           >
             <BsSpotify />
           </div>
           <div
-            onClick={() => setChosenService('soundcloud')}
+            onClick={() => handleChooseProvider('soundcloud')}
             className={styles.soundcloudPickerContainer}
           >
             <FaSoundcloud />
           </div>
           <div
-            onClick={() => setChosenService('youtube')}
+            onClick={() => handleChooseProvider('youtube')}
             className={styles.youtubePickerContainer}
           >
             <AiFillYoutube />
           </div>
         </div>
-        {chosenService && <DisplayServiceInformation service={chosenService} />}
+        {chosenService && (
+          <DisplayServiceInformation
+            sounds={chosenSounds}
+            service={chosenService}
+          />
+        )}
       </div>
     </div>
   );

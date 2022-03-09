@@ -68,13 +68,14 @@
   padding: 2px 24px;
   font-size: 14px;
   font-weight: 500;
-  background-color: burlywood;
+  background-color: var(--fourth);
   transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
     opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
     rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
   width: auto;
   will-change: transform, opacity;
+  border: solid black 1px;
 }
 
 .btn:hover {
@@ -83,11 +84,13 @@
 }
 
 .loginBtn {
-  background-color: greenyellow;
+  background-color: var(--secondary);
+  border: solid black 1px;
 }
 
 .logoutBtn {
   background-color: rgb(221, 61, 61);
+  border: solid black 1px;
 }
 
 @media only screen and (max-width: 900px) {

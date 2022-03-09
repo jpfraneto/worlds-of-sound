@@ -16,7 +16,7 @@ const NewSoundPage = () => {
     return <AccessDenied />;
   }
 
-  return <AddNewSound type={router.query.type} />;
+  return <AddNewSound type={router.query.type || 'Sound'} />;
 };
 
 NewSoundPage.getLayout = getLayout;
