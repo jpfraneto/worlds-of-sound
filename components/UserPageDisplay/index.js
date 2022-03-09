@@ -22,7 +22,7 @@ const UserPageDisplay = ({ user }) => {
         <Link href={`/sounds/new`}>
           <a className={styles.newReviewBtn}>Add Sound</a>
         </Link>
-        <h4>{user.email}'s sounds</h4>
+        <h4>{user.email} sounds</h4>
         <p>
           Spotify: {user.spotify?.length || 0} | Soundcloud:{' '}
           {user.soundcloud?.length || 0} | Youtube:

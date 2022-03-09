@@ -7,9 +7,11 @@ const ServiceInformationList = ({ sounds, service }) => {
     return (
       <div className={styles.spotifyListContainer}>
         {sounds ? (
-          sounds.map(sound => <SpotifyInformationCard sound={sound} />)
+          sounds.map(sound => (
+            <SpotifyInformationCard sound={sound} key={sound._id} />
+          ))
         ) : (
-          <h3>This user hasn't shared sounds from this provider yet</h3>
+          <h3>This user has not shared sounds from this provider yet</h3>
         )}
       </div>
     );
@@ -18,7 +20,7 @@ const ServiceInformationList = ({ sounds, service }) => {
   return (
     <div className={styles.listContainer}>
       {sounds.map(sound => (
-        <ServiceInformationIndividualCard sound={sound} />
+        <ServiceInformationIndividualCard key={sound._id} sound={sound} />
       ))}
     </div>
   );
