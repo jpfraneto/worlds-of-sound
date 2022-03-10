@@ -43,6 +43,7 @@ const addSound = async (req, res) => {
     newSound.author = {
       email: session.user.email,
       id: session.id,
+      image: session.user.image,
     };
     const response = await db.collection('sounds').insertOne(newSound);
     let userResponse;

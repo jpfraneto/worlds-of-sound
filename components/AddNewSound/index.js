@@ -11,8 +11,7 @@ const AddNewSound = ({ type }) => {
   const [url, setUrl] = useState('');
 
   const [description, setDescription] = useState('');
-  const [title, setTitle] = useState('30 Minute Kirtan Kriya. Full power.');
-  const [author, setAuthor] = useState('jpfraneto');
+  const [title, setTitle] = useState('');
   const [rangeRating, setRangeRating] = useState(10);
 
   const [serverMessage, setServerMessage] = useState('');
@@ -55,7 +54,6 @@ const AddNewSound = ({ type }) => {
         type,
         description,
         title,
-        author,
         rangeRating,
       }),
     };

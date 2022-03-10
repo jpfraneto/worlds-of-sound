@@ -3,6 +3,7 @@ import { BsHandThumbsUp, BsHandThumbsDown } from 'react-icons/bs';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Moment from 'react-moment';
 
 const SoundIndividualComment = ({ thisComment }) => {
   const [displayFull, setDisplayFull] = useState(false);
@@ -14,16 +15,21 @@ const SoundIndividualComment = ({ thisComment }) => {
           width={50}
           height={50}
           alt='User Avatar'
-          src='https://yt3.ggpht.com/5b5MRf7WDt9JZQJ__nDsK-78GJ9rTUIHo4OIA1DeyoMWa4mUOG2A-59K_BV2b9Ly9Q_dusPmOA=s88-c-k-c0x00ffffff-no-rj'
+          src={
+            thisComment.author?.image ||
+            'https://i1.sndcdn.com/avatars-000437232558-yuo0mv-t500x500.jpg'
+          }
         />
       </div>
 
       <div className={styles.fullCommentContainer}>
         <h4>
-          <Link href={`/u/${comment.author.username}`}>
-            <a>{comment.author.username}</a>
+          <Link href={`/u/${comment.author.email}`}>
+            <a>{comment.author.name}</a>
           </Link>{' '}
-          <span className={styles.timeAgoText}>hace 17 horas</span>
+          <span className={styles.timeAgoText}>
+            <Moment fromNow date={comment.date} />
+          </span>
         </h4>
         <p className={styles.commentText}>
           {comment.text.length > 100
@@ -40,19 +46,6 @@ const SoundIndividualComment = ({ thisComment }) => {
             {!displayFull ? <p>Más Información</p> : <p>Mostrar Menos</p>}
           </span>
         )}
-
-        <div className={styles.commentReactions}>
-          <span>
-            <BsHandThumbsUp />
-          </span>
-          <span>
-            <BsHandThumbsDown />
-          </span>
-
-          <button onClick={() => alert('responder a este comentario!')}>
-            Responder...
-          </button>
-        </div>
       </div>
     </div>
   );

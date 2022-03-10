@@ -13,14 +13,12 @@ export default async function handler(req, res) {
 
 const addComment = async (req, res) => {
   let { db } = await connectToDatabase();
-  const session = await getSession({ req });
-  const newComment = req.body.theNewComment;
-  newComment.author = { username: session.username, id: session.id };
+  console.log('here', req.body);
   await db
     .collection('sounds')
     .updateOne(
       { _id: new ObjectId(req.query.id) },
-      { $push: { comments: newComment } }
+      { $push: { comments: req.body.theNewComment } }
     );
 
   return res.json({

@@ -2,8 +2,11 @@ import styles from './styles.module.css';
 import { useState } from 'react';
 import Image from 'next/image';
 import { createUniqueId } from '../../lib/functions';
+import { useSession } from 'next-auth/react';
 
 const SoundNewComment = ({ setComments, soundId, author }) => {
+  const { data: session } = useSession();
+  const user = session.user;
   const [visible, setVisible] = useState(false);
   const [newComment, setNewComment] = useState('');
 
@@ -12,6 +15,7 @@ const SoundNewComment = ({ setComments, soundId, author }) => {
       text: newComment,
       date: new Date().getTime(),
       id: createUniqueId(),
+      author: user,
     };
     const reqParams = {
       method: 'POST',
@@ -26,7 +30,6 @@ const SoundNewComment = ({ setComments, soundId, author }) => {
     if (data.success) {
       setNewComment('');
       setVisible(false);
-      theNewComment.author = author;
       setComments(prevComments => [theNewComment, ...prevComments]);
     }
   };
@@ -37,7 +40,7 @@ const SoundNewComment = ({ setComments, soundId, author }) => {
           width={50}
           height={50}
           alt='User Avatar Image'
-          src='https://yt3.ggpht.com/5b5MRf7WDt9JZQJ__nDsK-78GJ9rTUIHo4OIA1DeyoMWa4mUOG2A-59K_BV2b9Ly9Q_dusPmOA=s88-c-k-c0x00ffffff-no-rj'
+          src={user.image}
         />
       </div>
 

@@ -8,7 +8,45 @@
   margin: 0 auto;
 }
 
+.playerWrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.reactPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.descriptionContainer {
+  margin-top: 8px;
+}
+
+.soundRecommenderAvatar {
+  border-radius: 100%;
+}
+
 .soundInformation {
   text-align: left;
   margin: 10px auto;
+}
+.soundInformationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.soundRating {
+  background-color: var(--secondary);
+  height: fit-content;
+  padding: 10px;
+  border-radius: 8px;
+  border: solid black 1px;
+  text-align: center;
+}
+
+.ratingIcon {
+  font-size: 2rem;
 }
