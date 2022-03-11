@@ -4,7 +4,7 @@ import AddNewSound from '../../components/AddNewSound';
 import AccessDenied from '../../components/AccessDenied';
 import { useSession, getSession } from 'next-auth/react';
 
-const NewSoundPage = () => {
+const NewSoundPage = ({ types }) => {
   const router = useRouter();
   const { data: session, status } = useSession();
 
@@ -16,9 +16,20 @@ const NewSoundPage = () => {
     return <AccessDenied />;
   }
 
-  return <AddNewSound type={router.query.type || 'Sound'} />;
+  return <AddNewSound types={types} selectedType={router.query.type || ''} />;
 };
 
 NewSoundPage.getLayout = getLayout;
 
 export default NewSoundPage;
+
+export async function getStaticProps(context) {
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
+  const response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/sounds/types`);
+  const types = await response.json();
+  console.log('the types are: ', types);
+  return {
+    props: { types },
+  };
+}

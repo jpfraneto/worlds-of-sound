@@ -1,0 +1,9 @@
+.soundsMainContainer {
+  width: 100%;
+  height: var(--section-height);
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  margin: 10px 0 33px;
+  justify-content: center;
+}

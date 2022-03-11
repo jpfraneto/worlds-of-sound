@@ -1,0 +1,28 @@
+.soundTypeCardContainer {
+  width: fit-content;
+  height: fit-content;
+  border: solid black 1px;
+  border-radius: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 8px 12px;
+  cursor: pointer;
+}
+
+.servicesLogosDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary);
+  border: solid black 1px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin-bottom: 3px;
+}
+
+.icon {
+  margin: 0 3px;
+  transform: translateY(2px);
+}

@@ -5,7 +5,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { getSoundProvider, getSoundId } from '../../lib/functions';
 
-const AddNewSound = ({ type }) => {
+const AddNewSound = ({ selectedType, types }) => {
+  console.log('inside the add new sound, the types are: ', types);
   const [provider, setProvider] = useState('');
   const [soundId, setSoundId] = useState('');
   const [url, setUrl] = useState('');
@@ -13,6 +14,7 @@ const AddNewSound = ({ type }) => {
   const [description, setDescription] = useState('');
   const [title, setTitle] = useState('');
   const [rangeRating, setRangeRating] = useState(10);
+  const [selectedSoundType, setSelectedSoundType] = useState(selectedType);
 
   const [serverMessage, setServerMessage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -66,7 +68,14 @@ const AddNewSound = ({ type }) => {
 
   return (
     <div className={styles.addNewSoundContainer}>
-      <h2>Add New {type}</h2>
+      <h2>
+        Add New
+        <select value={selectedSoundType}>
+          {types.map(type => (
+            <option value={type.soundtype}>{type.soundtype}</option>
+          ))}
+        </select>
+      </h2>
       <form>
         <div className={styles.hostedContainer}>
           <h3>Where is it hosted?</h3>

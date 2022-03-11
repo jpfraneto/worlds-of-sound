@@ -45,7 +45,12 @@ const addSound = async (req, res) => {
       id: session.id,
       image: session.user.image,
     };
-    const response = await db.collection('sounds').insertOne(newSound);
+    // const response = await db.collection('sounds').insertOne(newSound);
+    //Add the sound to the soundtype
+    // const response = await db
+    //   .collection('soundtypes')
+    //   .update({ soundtype: newSound.type });
+
     let userResponse;
     if (newSound.provider === 'youtube') {
       userResponse = await db.collection('users').updateOne(

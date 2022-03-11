@@ -1,11 +1,26 @@
 export const soundtypes = [
-  { id: '12314r42', type: 'workout', subgenres: ['hiit', 'yoga'] },
-
-  { id: '123sd123', type: 'meditation', subgenres: ['kriya'] },
-  { id: '1231a89d', type: 'breathwork', subgenres: ['wim hof', 'holotropic'] },
   {
-    id: 'sad14r42',
-    type: 'albums',
+    _id: '12314r42',
+    soundtype: 'workout',
+    subgenres: ['hiit', 'yoga'],
+    typeImage: '/typeImages/soundtypes/workout.jpg',
+  },
+
+  {
+    _id: '123sd123',
+    soundtype: 'meditation',
+    subgenres: ['kriya'],
+    typeImage: '/typeImages/soundtypes/meditation.jpg',
+  },
+  {
+    _id: '1231a89d',
+    soundtype: 'breathwork',
+    subgenres: ['wim hof', 'holotropic'],
+    typeImage: '/typeImages/soundtypes/breathwork.jpg',
+  },
+  {
+    _id: 'sad14r42',
+    soundtype: 'albums',
     subgenres: [
       '1950-1960',
       '1960-1970',
@@ -16,20 +31,30 @@ export const soundtypes = [
       '2010-2020',
       '2020+',
     ],
+    typeImage: '/typeImages/soundtypes/albums.jpg',
   },
   {
-    id: 'sad12r42',
-    type: 'sets-mixes',
+    _id: 'sad12r42',
+    soundtype: 'sets-mixes',
     subgenres: [],
+    typeImage: '/typeImages/soundtypes/sets-mixes.jpg',
   },
   {
-    id: 'sasocr42',
-    type: 'ceremony',
+    _id: 'asduio32',
+    soundtype: 'concerts',
+    subgenres: [],
+    typeImage: '/typeImages/soundtypes/concerts.jpg',
+  },
+  {
+    _id: 'sasocr42',
+    soundtype: 'ceremony',
     subgenres: ['tribal', 'drone', 'psytrance', 'flute'],
+    typeImage: '/typeImages/soundtypes/ceremony.jpg',
   },
   {
-    id: 'as932lk',
-    type: 'podcast',
+    _id: 'as932lk',
+    soundtype: 'podcast',
     subgenres: ['self', 'business', 'comedy', 'humanity'],
+    typeImage: '/typeImages/soundtypes/podcast.jpg',
   },
 ];

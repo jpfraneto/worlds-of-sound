@@ -9,7 +9,6 @@ import { FcRating } from 'react-icons/fc';
 import Moment from 'react-moment';
 
 const SoundDisplayPage = ({ sound }) => {
-  console.log('the sound is: ', sound);
   return (
     <div className={styles.mainContainer}>
       <div className={styles.playerContainer}>

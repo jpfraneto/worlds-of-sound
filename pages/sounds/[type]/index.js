@@ -14,6 +14,9 @@ const SoundTypePage = ({ sounds }) => {
     <>
       <div className={styles.topNav}>
         <h2>{router.query.type}</h2>
+        <Link href='/sounds'>
+          <a>Back to sounds</a>
+        </Link>
       </div>
       <div className={styles.soundElementsContainer}>
         <div className={styles.innerSoundsContainer}>
@@ -63,8 +66,6 @@ const SoundTypePage = ({ sounds }) => {
     </>
   );
 };
-
-SoundTypePage.getLayout = getLayout;
 
 export async function getServerSideProps(context) {
   let dev = process.env.NODE_ENV !== 'production';

@@ -1,13 +1,21 @@
 .topNav {
   background-color: var(--secondary);
   width: 100%;
+  border-bottom: 8px solid black;
+  text-align: center;
 }
 
 .topNav h2 {
   font-size: 3rem;
   text-align: center;
   text-transform: uppercase;
-  border-bottom: 8px solid black;
+}
+
+.topNav a {
+  color: yellow;
+  margin: 0;
+  padding: 0;
+  display: inline;
 }
 
 .soundElementsContainer {
