@@ -37,7 +37,6 @@ const addSoundType = async (req, res) => {
     const newSoundType = { soundtype, typeImage };
     newSoundType.sounds = { youtube: [], spotify: [], soundcloud: [] };
     const response = await db.collection('soundtypes').insertOne(newSoundType);
-    console.log('the response is: ', response);
     return res.json({
       message: 'The sound type was added successfully to the Worlds of Sound',
       success: true,

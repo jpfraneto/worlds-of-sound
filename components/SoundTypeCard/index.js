@@ -7,9 +7,8 @@ import { FaSoundcloud } from 'react-icons/fa';
 import { AiFillYoutube } from 'react-icons/ai';
 
 const SoundTypeCard = ({ soundtype }) => {
-  console.log('the soundtype is: ', soundtype);
   return (
-    <Link key={soundtype._id} href={`/sounds/${soundtype.soundtype}`}>
+    <Link key={soundtype._id} href={`/sounds/${soundtype.soundtype}`} passHref>
       <div className={styles.soundTypeCardContainer}>
         {soundtype.typeImage && (
           <Image

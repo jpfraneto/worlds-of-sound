@@ -7,7 +7,6 @@ import Link from 'next/link';
 import DisplayServiceInformation from './UserPageDisplayComponents/DisplayServiceInformation';
 
 const UserPageDisplay = ({ user }) => {
-  console.log('the user is: ', user);
   const [chosenService, setChosenService] = useState('');
   const [chosenSounds, setChosenSounds] = useState([]);
   const handleChooseProvider = provider => {

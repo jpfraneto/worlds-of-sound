@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import Dropdown from '../Dropdown';
 import Link from 'next/link';
 
-const MenuItems = ({ items }) => {
+const MenuItems = ({ items, key }) => {
   const [dropdown, setDropdown] = useState(false);
   let ref = useRef();
 
@@ -33,6 +33,7 @@ const MenuItems = ({ items }) => {
     <li
       className={styles.menuItems}
       ref={ref}
+      key={key}
       // onMouseEnter={handleMouseEnter}
       // onMouseLeave={handleMouseLeave}
     >

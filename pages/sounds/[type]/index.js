@@ -6,6 +6,7 @@ import SoundElementCard from '../../../components/SoundElementCard';
 import Link from 'next/link';
 import ReactPlayer from 'react-player';
 import SpotifyPlayer from '../../../components/SpotifyPlayer';
+import Button from '../../../components/Button';
 
 const SoundTypePage = ({ sounds }) => {
   const [chosenElement, setChosenElement] = useState(null);
@@ -14,9 +15,7 @@ const SoundTypePage = ({ sounds }) => {
     <>
       <div className={styles.topNav}>
         <h2>{router.query.type}</h2>
-        <Link href='/sounds'>
-          <a>Back to sounds</a>
-        </Link>
+        <Button text='Back to sounds' link='/sounds' />
       </div>
       <div className={styles.soundElementsContainer}>
         <div className={styles.innerSoundsContainer}>

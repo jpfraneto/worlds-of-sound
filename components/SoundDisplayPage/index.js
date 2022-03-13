@@ -7,10 +7,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FcRating } from 'react-icons/fc';
 import Moment from 'react-moment';
+import Button from '../Button';
 
 const SoundDisplayPage = ({ sound }) => {
   return (
     <div className={styles.mainContainer}>
+      <Button
+        link={`/sounds/${sound.selectedSoundType}`}
+        text={`Back to ${sound.selectedSoundType} sounds`}
+      />
       <div className={styles.playerContainer}>
         {' '}
         {sound.provider === 'spotify' ? (

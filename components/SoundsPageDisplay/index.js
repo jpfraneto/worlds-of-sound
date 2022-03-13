@@ -3,13 +3,14 @@ import SoundTypeCard from '../SoundTypeCard';
 import { soundtypesData } from '../../data/soundtypes.js';
 
 const SoundsPageDisplay = ({ soundtypes }) => {
-  console.log('in here, the soundtypes areee: ', soundtypes);
   return (
     <div className={styles.soundsMainContainer}>
       {soundtypes
-        ? soundtypes.map(soundtype => <SoundTypeCard soundtype={soundtype} />)
+        ? soundtypes.map(soundtype => (
+            <SoundTypeCard key={soundtype._id} soundtype={soundtype} />
+          ))
         : soundtypesData.map(soundtype => (
-            <SoundTypeCard soundtype={soundtype} />
+            <SoundTypeCard key={soundtype._id} soundtype={soundtype} />
           ))}
     </div>
   );

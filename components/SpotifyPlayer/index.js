@@ -5,7 +5,7 @@ const SpotifyPlayer = ({ url }) => {
   return (
     <div className={styles.spotifyContainer}>
       <p>
-        The provider is spotify, click this button to listen to the album in
+        The provider is spotify, click this button to listen to this sound in
         their app!
       </p>
       <div className={styles.spotifyBtnContainer}>

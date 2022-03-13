@@ -6,6 +6,15 @@
   text-align: center;
 }
 
+.soundTypeSelect {
+  background-color: transparent;
+  border: none;
+  font-size: 1.6rem;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
 .hostedContainer {
   background-color: rgb(163, 157, 157);
   border: solid black 1px;
@@ -74,7 +83,13 @@
 }
 
 .addSoundBtn {
-  background-color: var(--primary);
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: solid black 1px;
+  background-color: aquamarine;
+  width: fit-content;
+  margin: 0 auto 8px;
+  cursor: pointer;
 }
 
 .goToSoundBtn {

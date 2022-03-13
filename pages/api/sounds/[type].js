@@ -27,7 +27,7 @@ const getSoundsByType = async (req, res) => {
   let { db } = await connectToDatabase();
   const sounds = await db
     .collection('sounds')
-    .find({ type: req.query.type })
+    .find({ selectedSoundType: req.query.type })
     .toArray();
   return res.json(sounds);
 };

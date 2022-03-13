@@ -40,17 +40,14 @@ const addSound = async (req, res) => {
   try {
     let { db } = await connectToDatabase();
     const newSound = await getSoundInformation(req.body);
+    const provider = newSound.provider;
     newSound.author = {
       email: session.user.email,
       id: session.id,
       image: session.user.image,
     };
-    // const response = await db.collection('sounds').insertOne(newSound);
-    //Add the sound to the soundtype
-    // const response = await db
-    //   .collection('soundtypes')
-    //   .update({ soundtype: newSound.type });
-
+    const response = await db.collection('sounds').insertOne(newSound);
+    let response2;
     let userResponse;
     if (newSound.provider === 'youtube') {
       userResponse = await db.collection('users').updateOne(
@@ -59,6 +56,12 @@ const addSound = async (req, res) => {
         },
         { $push: { youtube: req.body } }
       );
+      response2 = await db
+        .collection('soundtypes')
+        .updateOne(
+          { soundtype: newSound.selectedSoundType },
+          { $push: { 'sounds.youtube': newSound } }
+        );
     }
     if (newSound.provider === 'soundcloud') {
       userResponse = await db.collection('users').updateOne(
@@ -67,6 +70,12 @@ const addSound = async (req, res) => {
         },
         { $push: { soundcloud: req.body } }
       );
+      response2 = await db
+        .collection('soundtypes')
+        .updateOne(
+          { soundtype: newSound.selectedSoundType },
+          { $push: { 'sounds.soundcloud': newSound } }
+        );
     }
     if (newSound.provider === 'spotify') {
       userResponse = await db.collection('users').updateOne(
@@ -75,6 +84,12 @@ const addSound = async (req, res) => {
         },
         { $push: { spotify: req.body } }
       );
+      response2 = await db
+        .collection('soundtypes')
+        .updateOne(
+          { soundtype: newSound.selectedSoundType },
+          { $push: { 'sounds.spotify': newSound } }
+        );
     }
 
     if (!response || !userResponse)
@@ -85,6 +100,7 @@ const addSound = async (req, res) => {
       soundId: response.insertedId,
     });
   } catch (error) {
+    console.log(error);
     return res.json({
       message: new Error(error).message,
       success: false,
