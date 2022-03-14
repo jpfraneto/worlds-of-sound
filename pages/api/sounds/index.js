@@ -1,7 +1,7 @@
 const { connectToDatabase } = require('../../../lib/mongodb');
 const ObjectId = require('mongodb').ObjectId;
 import { getSession } from 'next-auth/react';
-import { getSoundInformation } from '../../../lib/functions';
+import { getSoundInformation } from '../../../lib/serverfunctions';
 
 export default async function handler(req, res) {
   // switch the methods
@@ -47,6 +47,9 @@ const addSound = async (req, res) => {
       image: session.user.image,
     };
     const response = await db.collection('sounds').insertOne(newSound);
+    const newSoundReference = {
+      _id: response._id,
+    };
     let response2;
     let userResponse;
     if (newSound.provider === 'youtube') {
@@ -60,7 +63,7 @@ const addSound = async (req, res) => {
         .collection('soundtypes')
         .updateOne(
           { soundtype: newSound.selectedSoundType },
-          { $push: { 'sounds.youtube': newSound } }
+          { $push: { 'sounds.youtube': newSoundReference } }
         );
     }
     if (newSound.provider === 'soundcloud') {
@@ -74,7 +77,7 @@ const addSound = async (req, res) => {
         .collection('soundtypes')
         .updateOne(
           { soundtype: newSound.selectedSoundType },
-          { $push: { 'sounds.soundcloud': newSound } }
+          { $push: { 'sounds.soundcloud': newSoundReference } }
         );
     }
     if (newSound.provider === 'spotify') {
@@ -88,7 +91,7 @@ const addSound = async (req, res) => {
         .collection('soundtypes')
         .updateOne(
           { soundtype: newSound.selectedSoundType },
-          { $push: { 'sounds.spotify': newSound } }
+          { $push: { 'sounds.spotify': newSoundReference } }
         );
     }
 

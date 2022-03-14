@@ -79,7 +79,7 @@ const SpotifyApiTester = () => {
       {' '}
       <div className={styles.centerDiv}>
         <div className={styles.topNavbar}>
-          <h2>SPOTIFY TESTING</h2>
+          <h2>SPOTIFY TESTING {userToken}</h2>
           {loggedIn ? (
             <button
               onClick={spotifyHandleLogout}

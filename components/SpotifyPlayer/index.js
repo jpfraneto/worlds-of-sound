@@ -1,13 +1,11 @@
 import styles from './styles.module.css';
 import { BsSpotify } from 'react-icons/bs';
+import Image from 'next/image';
 
-const SpotifyPlayer = ({ url }) => {
+const SpotifyPlayer = ({ url, image }) => {
   return (
     <div className={styles.spotifyContainer}>
-      <p>
-        The provider is spotify, click this button to listen to this sound in
-        their app!
-      </p>
+      <Image src={image.url} width='200' height='200' />
       <div className={styles.spotifyBtnContainer}>
         <BsSpotify />
 

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import styles from './styles.module.css';
 
 const MainLandingSection = ({ scheduledDays }) => {
+  console.log('the scheduled days are: ', scheduledDays);
   const router = useRouter();
   const [winWidth, setWinWidth] = useState(0);
   const [winHeight, setWinHeight] = useState(0);
@@ -28,7 +29,7 @@ const MainLandingSection = ({ scheduledDays }) => {
           key={index}
           onClick={() =>
             router.push(
-              `/u/${scheduledDay.author.username}/scheduled/${scheduledDay._id}`
+              `/u/${scheduledDay.author.email}/scheduled/${scheduledDay._id}`
             )
           }
         >

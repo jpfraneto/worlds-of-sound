@@ -39,7 +39,7 @@ const addScheduledSound = async (req, res) => {
     let { db } = await connectToDatabase();
     const newSoundSchedule = req.body;
     newSoundSchedule.author = {
-      username: session.username,
+      email: session.user.email,
       id: session.id,
     };
     const response = await db
@@ -58,7 +58,7 @@ const addScheduledSound = async (req, res) => {
         'The sound schedule was added successfully to the Worlds of Sound',
       success: true,
       soundId: response.insertedId,
-      username: session.username,
+      email: session.user.email,
     });
   } catch (error) {
     return res.json({

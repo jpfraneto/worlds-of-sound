@@ -9,7 +9,11 @@ const SpotifyInformationCard = ({ sound }) => {
   return (
     <div className={styles.albumCardContainer}>
       <Image
-        src='https://i.scdn.co/image/ab67616d0000b273d39d137c4a8ab01828eddc9f'
+        src={
+          sound.metadata
+            ? sound.metadata.image.url
+            : 'https://i.scdn.co/image/ab67616d0000b273d39d137c4a8ab01828eddc9f'
+        }
         width={150}
         height={150}
         alt='image'

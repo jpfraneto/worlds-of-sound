@@ -63,8 +63,7 @@ const AddNewSound = ({ selectedType, types }) => {
     const response = await fetch('/api/sounds', reqParams);
     const data = await response.json();
     setLoading(false);
-    console.log('the data returned from the api is: ', data);
-    return setServerMessage(data);
+    if (data.success) return setServerMessage(data);
   };
 
   return (

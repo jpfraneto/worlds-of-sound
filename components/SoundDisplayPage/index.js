@@ -19,7 +19,7 @@ const SoundDisplayPage = ({ sound }) => {
       <div className={styles.playerContainer}>
         {' '}
         {sound.provider === 'spotify' ? (
-          <SpotifyPlayer url={sound.url} />
+          <SpotifyPlayer url={sound.url} image={sound.metadata.image} />
         ) : (
           <div className={styles.playerWrapper}>
             {' '}
@@ -47,7 +47,21 @@ const SoundDisplayPage = ({ sound }) => {
           </div>
           <div>
             {' '}
-            <h3>{sound.title}</h3>
+            {sound.title ? (
+              <h3>{sound.title}</h3>
+            ) : (
+              <div>
+                <h3>{sound.metadata.name}</h3>
+                <h5>
+                  {sound.metadata.artists.map(artist => (
+                    <span>
+                      {artist.name}
+                      {''}
+                    </span>
+                  ))}
+                </h5>
+              </div>
+            )}
             <p>
               Shared by{' '}
               <Link href={`/u/${sound.author.email}`}>

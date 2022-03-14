@@ -1,6 +1,5 @@
 .serviceDisplay {
-  height: calc(100% - 44px);
-  background-color: blue;
+  height: fit-content;
 }
 
 @media only screen and (min-width: 768px) {

@@ -10,6 +10,7 @@ const SoundScheduling = () => {
     scheduledDate: '',
     completed: false,
   });
+  const [description, setDescription] = useState('');
   const [pickedSounds, setPickedSounds] = useState([
     { id: createUniqueId(), url: '' },
   ]);
@@ -30,16 +31,16 @@ const SoundScheduling = () => {
     const reqParams = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...newSoundsSchedule, pickedSounds }),
+      body: JSON.stringify({ ...newSoundsSchedule, pickedSounds, description }),
     };
     const response = await fetch(`/api/sounds/schedule`, reqParams);
     const data = await response.json();
-    router.push(`/u/${data.username}/scheduled/${data.soundId}`);
+    router.push(`/u/${data.email}/scheduled/${data.soundId}`);
   };
   return (
     <div>
       <form onSubmit={handleSchedulingForm}>
-        <div>
+        <div className={styles.descriptionContainer}>
           <label htmlFor='datePicker'>When will you play this sounds?</label>
           <input
             type='date'
@@ -47,6 +48,16 @@ const SoundScheduling = () => {
             id='datePicker'
             onChange={handleDateChange}
             min={new Date()}
+          />
+        </div>
+        <div className={styles.descriptionContainer}>
+          <label htmlFor='description'>What is this piece all about?</label>
+          <textarea
+            type='text'
+            id='description'
+            name='description'
+            onChange={e => setDescription(e.target.value)}
+            placeholder='Description...'
           />
         </div>
         <SoundSchedulingPicker

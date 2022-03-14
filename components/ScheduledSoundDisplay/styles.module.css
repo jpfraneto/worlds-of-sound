@@ -12,7 +12,7 @@
 .randomSoundSchedule {
   border: solid black 1px;
   border-radius: 4px;
-  background-color: var(--secondary);
+  background-color: var(--primary);
   filter: brightness(85%);
   font-size: 1.2rem;
   margin-top: 10px;
@@ -21,4 +21,19 @@
 
 .randomSoundSchedule:hover {
   cursor: pointer;
+}
+
+.elementsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.reactPlayerContainer {
+  margin: 8px;
+}
+
+.reactPlayer {
+  height: auto !important;
+  aspect-ratio: 16/9;
 }
