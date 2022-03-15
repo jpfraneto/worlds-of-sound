@@ -22,9 +22,10 @@
 
 .innerSoundsContainer {
   display: flex;
-  overflow-x: scroll;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 80%;
-  height: 140px;
+  height: fit-content;
 }
 
 .playerContainer {

@@ -1,6 +1,7 @@
 import SoundsPageDisplay from '../../components/SoundsPageDisplay';
 
 const Sounds = ({ types }) => {
+  console.log('the types are: ', types);
   return <SoundsPageDisplay soundtypes={types} />;
 };
 

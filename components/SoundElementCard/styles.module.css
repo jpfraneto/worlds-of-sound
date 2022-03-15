@@ -3,7 +3,7 @@
   background-color: var(--primary);
   min-width: 161px;
   height: 90%;
-  margin: auto 12px;
+  margin: 8px 12px;
 }
 
 .playIcon {
@@ -26,4 +26,16 @@
 
 .goToBtn:hover {
   filter: brightness(85%);
+}
+
+.playerContainer {
+  margin: 8px;
+  border: solid white 8px;
+  height: fit-content;
+  width: fit-content;
+}
+
+.reactPlayer {
+  height: auto !important;
+  aspect-ratio: 16/9;
 }

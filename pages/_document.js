@@ -15,6 +15,7 @@ class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Shizuru&display=swap'
             rel='stylesheet'
           />
+          <link rel='icon' href='/music.ico' />
         </Head>
         <body>
           <Main />

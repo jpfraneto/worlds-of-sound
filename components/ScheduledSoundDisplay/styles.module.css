@@ -1,7 +1,8 @@
 .mainContainer {
   margin: 20px auto;
-  width: 88%;
-  background-color: var(--primary);
+  width: fit-content;
+  max-width: 58%;
+  background-color: var(--secondary);
   padding: 8px;
   border: solid black 1px;
   text-align: center;
@@ -26,11 +27,13 @@
 .elementsContainer {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-top: 10px;
 }
 
 .reactPlayerContainer {
   margin: 8px;
+  border: solid white 8px;
 }
 
 .reactPlayer {

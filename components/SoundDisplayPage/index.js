@@ -54,7 +54,7 @@ const SoundDisplayPage = ({ sound }) => {
                 <h3>{sound.metadata.name}</h3>
                 <h5>
                   {sound.metadata.artists.map(artist => (
-                    <span>
+                    <span key={sound._id}>
                       {artist.name}
                       {''}
                     </span>

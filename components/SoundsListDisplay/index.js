@@ -34,16 +34,6 @@ const SoundsListDisplay = ({ sounds }) => {
             </div>
           )}
         </div>
-        {/* <div>
-          <Link
-            href={{
-              pathname: '/sounds/new',
-              query: { type: router.query.type },
-            }}
-          >
-            <a className={styles.newElementBtn}>Add new {router.query.type}</a>
-          </Link>
-        </div> */}
       </div>
       {chosenElement && (
         <div className={styles.playerContainer}>

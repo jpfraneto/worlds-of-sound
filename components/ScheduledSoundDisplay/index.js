@@ -14,7 +14,7 @@ const ScheduledSoundDisplay = ({ scheduledSound }) => {
       <p>{scheduledSound.description}</p>
       <div className={styles.elementsContainer}>
         {scheduledSound.pickedSounds.map(pickedSound => (
-          <div className={styles.reactPlayerContainer}>
+          <div key={pickedSound._id} className={styles.reactPlayerContainer}>
             <ReactPlayer
               className={styles.reactPlayer}
               width='100%'
