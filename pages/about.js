@@ -12,14 +12,13 @@ const About = () => {
         />
       </div>
       <div className={styles.aboutTextContainer}>
-        <p>Here, we celebrate humanity.</p>
-        <p>Share, please share.</p>
-        <p>For that is what builds up our strength.</p>
-
         <p>
-          Welcome, to the
-          <span className={styles.rainbowText}> Worlds of Sound</span>, that
-          each of us carries in his cells.
+          Why not see the curation of content as an act of giving and receiving
+          care?
+        </p>
+        <p>
+          I show you what I love, and I accept you sharing what you love with me
+          also. We all grow.
         </p>
       </div>
     </main>

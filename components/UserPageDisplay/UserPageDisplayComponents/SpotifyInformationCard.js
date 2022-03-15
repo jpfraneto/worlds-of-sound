@@ -8,16 +8,20 @@ import Link from 'next/link';
 const SpotifyInformationCard = ({ sound }) => {
   return (
     <div className={styles.albumCardContainer}>
-      <Image
-        src={
-          sound.metadata
-            ? sound.metadata.image.url
-            : 'https://i.scdn.co/image/ab67616d0000b273d39d137c4a8ab01828eddc9f'
-        }
-        width={150}
-        height={150}
-        alt='image'
-      />
+      <div className={styles.albumImageContainer}>
+        {' '}
+        <Image
+          src={
+            sound.metadata
+              ? sound.metadata.image.url
+              : 'https://i.scdn.co/image/ab67616d0000b273d39d137c4a8ab01828eddc9f'
+          }
+          width={150}
+          height={150}
+          alt='image'
+        />
+      </div>
+
       <div className={styles.btnsContainer}>
         <a href={sound.url} target='_blank' rel='noreferrer'>
           Listen

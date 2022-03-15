@@ -1,12 +1,19 @@
 .albumCardContainer {
   border: solid black 1px;
+  background-color: rgb(81, 177, 86);
   margin: 4px;
   border-radius: 4px;
   padding: 4px;
-  width: fit-content;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
+}
+
+.albumImageContainer {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border: solid black 2px;
 }
 
 .reactionsContainer {

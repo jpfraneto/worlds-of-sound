@@ -1,8 +1,9 @@
 .mainContainer {
-  height: var(--section-height);
+  min-height: var(--section-height);
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .userInformationContainer {
@@ -25,14 +26,11 @@
 
 .userSharesContainer {
   width: 100%;
-  height: 100%;
-}
-
-.userSharesContainer > div {
 }
 
 .servicePicker {
   display: flex;
+  border: solid black 2px;
 }
 .spotifyPickerContainer {
   background-color: #1db954;
@@ -71,6 +69,7 @@
 @media only screen and (min-width: 768px) {
   .mainContainer {
     flex-direction: row;
+    justify-content: center;
   }
   .userInformationContainer {
     width: 40%;
