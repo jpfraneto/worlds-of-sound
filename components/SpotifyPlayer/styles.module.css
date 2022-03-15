@@ -25,3 +25,7 @@
 .spotifyBtn:hover {
   filter: brightness(85%);
 }
+
+.albumImageElement {
+  border-radius: 8px;
+}

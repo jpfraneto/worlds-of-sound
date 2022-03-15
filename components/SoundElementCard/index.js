@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { AiFillPlayCircle, AiOutlineComment } from 'react-icons/ai';
 import ReactPlayer from 'react-player';
 import Image from 'next/image';
+import { BsSpotify } from 'react-icons/bs';
+import { FaSoundcloud } from 'react-icons/fa';
+import { AiFillYoutube } from 'react-icons/ai';
 
 const SoundElementCard = ({ sound, setChosenElement }) => {
-  console.log(sound);
   return (
     <div className={styles.soundElementCardContainer}>
-      <h3>{sound.provider}</h3>
-      <p>{sound.name}</p>
       <div className={styles.playerContainer}>
         {/* <span
           className={styles.playIcon}
@@ -18,14 +18,14 @@ const SoundElementCard = ({ sound, setChosenElement }) => {
           <AiFillPlayCircle />
         </span> */}
         {sound.provider === 'spotify' ? (
-          <>
+          <div className={styles.albumCoverContainer}>
             <Image
               alt='Album Cover'
               src={sound.metadata?.image?.url}
-              width={100}
-              height={1000}
+              width={150}
+              height={150}
             />
-          </>
+          </div>
         ) : (
           <ReactPlayer
             width='100%'

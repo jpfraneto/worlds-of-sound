@@ -5,7 +5,13 @@ import Image from 'next/image';
 const SpotifyPlayer = ({ url, image }) => {
   return (
     <div className={styles.spotifyContainer}>
-      <Image src={image.url} width='200' height='200' />
+      <Image
+        className={styles.albumImageElement}
+        src={image.url}
+        width='200'
+        height='200'
+      />
+
       <div className={styles.spotifyBtnContainer}>
         <BsSpotify />
 
