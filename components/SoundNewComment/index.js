@@ -23,7 +23,7 @@ const SoundNewComment = ({ setComments, soundId, author }) => {
       body: JSON.stringify({ theNewComment }),
     };
     const response = await fetch(
-      `http://localhost:3000/api/sounds/id/${soundId}/comments/new`,
+      `/api/sounds/id/${soundId}/comments/new`,
       reqParams
     );
     const data = await response.json();

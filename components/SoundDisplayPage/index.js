@@ -36,7 +36,7 @@ const SoundDisplayPage = ({ sound }) => {
 
       <div className={styles.soundInformation}>
         <div className={styles.soundInformationContainer}>
-          <div>
+          <div className={styles.recommenderImageAvatar}>
             <Image
               src={sound.author.image}
               className={styles.soundRecommenderAvatar}
@@ -45,21 +45,28 @@ const SoundDisplayPage = ({ sound }) => {
               alt='The avatar of the person that added this piece'
             />
           </div>
-          <div>
+          <div className={styles.recommendationInformationContainer}>
             {' '}
             {sound.title ? (
               <h3>{sound.title}</h3>
             ) : (
               <div>
-                <h3>{sound.metadata.name}</h3>
-                <h5>
-                  {sound.metadata.artists.map(artist => (
-                    <span key={sound._id}>
-                      {artist.name}
-                      {''}
-                    </span>
-                  ))}
-                </h5>
+                {sound.provider === 'spotify' ? (
+                  <h3>{sound.metadata.name}</h3>
+                ) : (
+                  <h3>{sound.metadata.title}</h3>
+                )}
+
+                {sound.metadata.artists && (
+                  <h5>
+                    {sound.metadata.artists.map(artist => (
+                      <span key={sound._id}>
+                        {artist.name}
+                        {''}
+                      </span>
+                    ))}
+                  </h5>
+                )}
               </div>
             )}
             <p>
@@ -74,7 +81,7 @@ const SoundDisplayPage = ({ sound }) => {
               </strong>
             </p>
           </div>
-          <div className={styles.soundRating}>
+          <div className={styles.ratingInformationContainer}>
             <span className={styles.ratingIcon}>
               <FcRating />
             </span>

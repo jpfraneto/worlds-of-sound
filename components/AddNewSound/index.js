@@ -17,6 +17,7 @@ const AddNewSound = ({ selectedType, types }) => {
 
   const [serverMessage, setServerMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const handleProviderSelection = e => {
     if (e.target.dataset.provider) setProvider(e.target.dataset.provider);
   };
@@ -64,6 +65,7 @@ const AddNewSound = ({ selectedType, types }) => {
     const data = await response.json();
     setLoading(false);
     if (data.success) return setServerMessage(data);
+    return setErrorMessage(data.message);
   };
 
   return (
@@ -169,6 +171,7 @@ const AddNewSound = ({ selectedType, types }) => {
                   </button>
                 </div>
               </form>
+              {errorMessage && <h2 style={{ color: 'red' }}>{errorMessage}</h2>}
             </>
           )}
         </>

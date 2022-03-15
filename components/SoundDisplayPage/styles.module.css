@@ -38,15 +38,36 @@
   margin-bottom: 8px;
 }
 
-.soundRating {
+.recommenderImageAvatar {
+  width: 15%;
+  min-width: 66px;
+  margin: 8px;
+}
+
+.recommendationInformationContainer {
+  width: 70%;
+}
+.ratingInformationContainer {
+  width: 15%;
   background-color: var(--secondary);
   height: fit-content;
   padding: 10px;
   border-radius: 8px;
   border: solid black 1px;
   text-align: center;
+  min-width: 66px;
 }
 
 .ratingIcon {
   font-size: 2rem;
+}
+
+@media only screen and (max-width: 888px) {
+  .mainContainer {
+    width: 94%;
+  }
+  .soundInformationContainer {
+    display: flex;
+    flex-direction: column;
+  }
 }
