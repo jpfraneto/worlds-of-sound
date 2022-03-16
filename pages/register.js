@@ -5,7 +5,6 @@ import styles from '../styles/Register.module.css';
 export default function Register({ users }) {
   const [user, setUser] = useState({ username: '', age: null, timestamps: [] });
   const handleChange = e => {
-    console.log('inside the handlechange', e.target.name, e.target.value);
     setUser(prevUser => ({
       ...prevUser,
       [e.target.name]: e.target.value,

@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid black;
+  border-bottom: 8px solid blue;
   overflow-x: scroll;
 }
 
@@ -26,6 +26,7 @@
 
 .wholeLogoContainer {
   position: relative;
+  color: black;
 }
 
 .wholeLogoContainer p {
@@ -61,6 +62,7 @@
 
 .navElement {
   cursor: pointer;
+  color: black;
 }
 
 .btn {

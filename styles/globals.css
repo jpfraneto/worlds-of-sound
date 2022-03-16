@@ -1,16 +1,18 @@
 :root {
   --primary: #c33c54;
-  --secondary: #8ee3ef;
+  --secondary: black;
   --third: #12355b;
-  --fourth: #aef3e7;
+  --fourth: black;
   --fifth: #514b23;
-  --white-txt: #fff;
-  --section-height: calc(100vh - 88px - 20px);
+  --white-txt: #black;
+  --section-height: calc(100vh - 88px - 25px);
 }
 
 html,
 body {
   padding: 0;
+  background-color: black;
+  color: white;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

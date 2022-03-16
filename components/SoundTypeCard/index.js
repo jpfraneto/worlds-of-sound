@@ -18,7 +18,7 @@ const SoundTypeCard = ({ soundtype }) => {
             alt={`${soundtype.type}s display image`}
           />
         )}
-        <h3>{soundtype.soundtype}</h3>
+        <h3 className={styles.soundtypeTitle}>{soundtype.soundtype}</h3>
         <div className={styles.servicesLogosDisplay}>
           <span className={styles.icon}>
             <BsSpotify />

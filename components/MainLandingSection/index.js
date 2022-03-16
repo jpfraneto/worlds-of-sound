@@ -1,16 +1,28 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './styles.module.css';
+import ReactPlayer from 'react-player';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const MainLandingSection = ({ scheduledDays }) => {
   console.log('the scheduled days are: ', scheduledDays);
   const router = useRouter();
   const [winWidth, setWinWidth] = useState(0);
   const [winHeight, setWinHeight] = useState(0);
+  const [recentlyAddedSounds, setRecentlyAddedSounds] = useState([]);
   useEffect(() => {
     setWinWidth(window.innerWidth);
-    setWinHeight(window.innerHeight);
+    setWinHeight(window.innerHeight - 100);
+    console.log('inside the use effect, before calling the function');
+    getRecentSounds();
   }, []);
+  const getRecentSounds = async () => {
+    console.log('inside the get recent sounds function');
+    const response = await fetch('/api/sounds/recents');
+    const data = await response.json();
+    setRecentlyAddedSounds(data);
+  };
   const getRandomNumber = (min, max) => {
     return Math.random() * (max - min) + min;
   };
@@ -36,6 +48,27 @@ const MainLandingSection = ({ scheduledDays }) => {
           ⭐️
         </div>
       ))}
+      <div className={styles.lastAddedSoundsContainer}>
+        <div className={styles.topBanner}>
+          <p className={styles.marquee}>
+            <span>RECENTLY ADDED SOUNDS</span>
+          </p>
+        </div>
+        <div className={styles.playersContainer}>
+          {' '}
+          {recentlyAddedSounds &&
+            recentlyAddedSounds.map(recentSound => (
+              <div className={styles.playerContainer}>
+                <Link href={`/sounds/id/${recentSound._id}`}>
+                  <Image
+                    src={`https://i.ytimg.com/vi/${recentSound.soundId}/sddefault.jpg`}
+                    layout='fill'
+                  />
+                </Link>
+              </div>
+            ))}
+        </div>
+      </div>
     </section>
   );
 };

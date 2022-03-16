@@ -47,6 +47,9 @@ const addSound = async (req, res) => {
       image: session.user.image,
     };
     const response = await db.collection('sounds').insertOne(newSound);
+    const response3 = await db
+      .collection('recentlyAddedSounds')
+      .insertOne(newSound);
     const newSoundReference = {
       _id: response._id,
     };

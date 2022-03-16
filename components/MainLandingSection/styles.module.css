@@ -1,11 +1,11 @@
 .firstSection {
   position: relative;
+  height: 100%;
 }
 
 .sectionContainer {
   margin: 0 auto;
-  width: 88%;
-  height: 80vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +14,42 @@
 .element {
   position: absolute;
   font-size: 1.6rem;
+  z-index: 2;
 }
 
 .element:hover {
   cursor: pointer;
+}
+
+.lastAddedSoundsContainer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: white 2px solid;
+  background-color: black;
+}
+
+.topBanner {
+  height: 33px;
+}
+
+.playersContainer {
+  display: flex;
+  overflow-x: scroll;
+  padding: 8px 0;
+}
+
+.playerContainer {
+  background-color: bisque;
+  width: 222px;
+  margin: 0 4px;
+}
+
+.reactPlayer {
+  aspect-ratio: 16/9;
+}
+
+.topBanner {
+  width: 100%;
+  height: fit-content;
 }

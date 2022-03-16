@@ -1,7 +1,7 @@
 .soundTypeCardContainer {
   width: fit-content;
   height: fit-content;
-  border: solid black 1px;
+  border: solid white 1px;
   border-radius: 8px;
   text-align: center;
   text-transform: uppercase;
@@ -25,4 +25,8 @@
 .icon {
   margin: 0 3px;
   transform: translateY(2px);
+}
+
+.soundtypeTitle {
+  letter-spacing: 4px;
 }

@@ -1,9 +1,14 @@
 .btnContainer {
   padding: 4px 8px;
   border-radius: 8px;
-  border: solid black 1px;
-  background-color: aquamarine;
+  border: solid white 1px;
+  background-color: black;
   width: fit-content;
   margin: 0 auto 8px;
   cursor: pointer;
+}
+
+.btnContainer:hover {
+  background-color: white;
+  color: black;
 }

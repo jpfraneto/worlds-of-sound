@@ -1,7 +1,7 @@
 .topNav {
   background-color: var(--secondary);
   width: 100%;
-  border-bottom: 8px solid black;
+  border-bottom: 1px solid red;
   text-align: center;
 }
 
@@ -53,14 +53,17 @@
 }
 
 .newElementBtn {
-  background-color: var(--primary);
+  background-color: white;
+  color: black;
   padding: 4px;
   border-radius: 8px;
   border: solid black 1px;
 }
 
 .newElementBtn:hover {
-  filter: brightness(85%);
+  color: white;
+  background-color: black;
+  border: solid white 1px;
   cursor: pointer;
 }
 
