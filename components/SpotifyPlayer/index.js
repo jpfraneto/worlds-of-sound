@@ -10,6 +10,7 @@ const SpotifyPlayer = ({ url, image }) => {
         src={image.url}
         width='200'
         height='200'
+        alt='spotify player image'
       />
 
       <div className={styles.spotifyBtnContainer}>

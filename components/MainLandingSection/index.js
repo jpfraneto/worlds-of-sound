@@ -58,12 +58,13 @@ const MainLandingSection = ({ scheduledDays }) => {
           {' '}
           {recentlyAddedSounds &&
             recentlyAddedSounds.map(recentSound => (
-              <div className={styles.playerContainer}>
-                <Link href={`/sounds/id/${recentSound._id}`}>
+              <div key={recentSound._id} className={styles.playerContainer}>
+                <Link href={`/sounds/id/${recentSound._id}`} passHref>
                   <Image
                     src={`https://i.ytimg.com/vi/${recentSound.soundId}/sddefault.jpg`}
                     width='176px'
                     height='99px'
+                    alt='Thumbnail of this video'
                   />
                 </Link>
               </div>
