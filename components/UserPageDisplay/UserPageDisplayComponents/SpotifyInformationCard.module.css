@@ -33,9 +33,16 @@
 
 .btnsContainer a {
   border: solid black 1px;
-  background-color: transparent;
+  background-color: black;
+  color: white;
   margin: 2px 3px;
-  padding: 2px;
+  padding: 2px 4px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.btnsContainer a:hover {
+  border: solid black 1px;
+  background-color: white;
+  color: black;
 }

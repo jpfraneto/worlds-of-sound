@@ -4,10 +4,10 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  border-right: solid black 2px;
+  border-right: solid blue 2px;
   text-align: center;
   padding: 8px;
-  background-color: var(--primary);
+  background-color: black;
 }
 
 .topContainer {
@@ -15,7 +15,7 @@
 }
 
 .bottomContainer {
-  background-color: var(--secondary);
+  background-color: white;
   border: solid blue 4px;
   display: flex;
   font-size: 2rem;
@@ -28,6 +28,9 @@
 .bottomContainer > * {
   margin: 0 7px;
   transform: translateY(4px);
+}
+.bottomContainer a {
+  color: black;
 }
 
 .bottomContainer > *:hover {

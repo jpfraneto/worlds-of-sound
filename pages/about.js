@@ -1,25 +1,17 @@
 import styles from '../styles/About.module.css';
 import Image from 'next/image';
+import ReactPlayer from 'react-player';
 
 const About = () => {
   return (
     <main className={styles.aboutMainContainer}>
-      <div className={styles.aboutImageContainer}>
-        <Image
-          src='/images/ozora.jpg'
-          layout='fill'
-          alt='Ozora Main Stage Spaceship'
+      <div className={styles.playerContainer}>
+        <ReactPlayer
+          className={styles.reactPlayer}
+          width='100%'
+          height='100%'
+          url='https://www.youtube.com/watch?v=YxnKBMblrXk'
         />
-      </div>
-      <div className={styles.aboutTextContainer}>
-        <p>
-          Why not see the curation of content as an act of giving and receiving
-          care?
-        </p>
-        <p>
-          I show you what I love, and I accept you sharing what you love with me
-          also. We all grow.
-        </p>
       </div>
     </main>
   );

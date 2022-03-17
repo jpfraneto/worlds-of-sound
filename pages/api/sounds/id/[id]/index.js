@@ -25,6 +25,7 @@ export default async function handler(req, res) {
 
 const getSoundById = async (req, res) => {
   let { db } = await connectToDatabase();
+  console.log('in here!', req.query.id);
   const sound = await db
     .collection('sounds')
     .findOne({ _id: new ObjectId(req.query.id) });

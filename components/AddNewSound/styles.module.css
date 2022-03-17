@@ -1,9 +1,10 @@
 .addNewSoundContainer {
   width: 666px;
   background-color: var(--secondary);
-  border: solid black 3px;
+  border: solid white 3px;
   margin: 22px auto;
   text-align: center;
+  border-radius: 8px;
 }
 
 .soundTypeSelect {
@@ -13,11 +14,12 @@
   font-family: 'Courier New', Courier, monospace;
   cursor: pointer;
   margin-left: 8px;
+  color: white;
 }
 
 .hostedContainer {
-  background-color: rgb(163, 157, 157);
-  border: solid black 1px;
+  background-color: black;
+  border: solid white 1px;
   width: fit-content;
   margin: 0 auto 22px;
   padding: 4px;
@@ -86,11 +88,17 @@
 .addSoundBtn {
   padding: 4px 8px;
   border-radius: 8px;
-  border: solid black 1px;
-  background-color: aquamarine;
+  border: solid white 1px;
+  color: white;
+  background-color: black;
   width: fit-content;
   margin: 0 auto 8px;
   cursor: pointer;
+}
+.addSoundBtn:hover {
+  background-color: white;
+  color: black;
+  border: solid black 1px;
 }
 
 .goToSoundBtn {
@@ -124,13 +132,13 @@
   appearance: none;
   width: 100%; /* Full-width */
   height: 25px; /* Specified height */
-  background: var(--third); /* Grey background */
+  background: black; /* Grey background */
   border-radius: 8px;
   outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
   transition: opacity 0.2s;
-  border: solid black 1px;
+  border: solid white 1px;
 }
 
 /* Mouse-over effects */
@@ -144,10 +152,10 @@
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: var(--secondary); /* Green background */
+  background: white; /* Green background */
   cursor: pointer; /* Cursor on hover */
   border-radius: 8px;
-  border: solid black 1px;
+  border: solid white 1px;
 }
 
 .slider::-moz-range-thumb {

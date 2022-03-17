@@ -8,14 +8,30 @@ import Image from 'next/image';
 import { FcRating } from 'react-icons/fc';
 import Moment from 'react-moment';
 import Button from '../Button';
+import { useRouter } from 'next/router';
 
 const SoundDisplayPage = ({ sound }) => {
+  const router = useRouter();
+  console.log('the router is: ', sound);
   return (
     <div className={styles.mainContainer}>
-      <Button
-        link={`/sounds/${sound.selectedSoundType}`}
-        text={`Back to ${sound.selectedSoundType} sounds`}
-      />
+      <div className={styles.btnContainer}>
+        <button
+          className={styles.goBackBtn}
+          type='button'
+          onClick={() => router.push(`/sounds/${sound.selectedSoundType}`)}
+        >
+          Go to Sounds
+        </button>
+        <button
+          className={styles.goBackBtn}
+          type='button'
+          onClick={() => router.push(`/u/${sound.author.email}`)}
+        >
+          Go to this User
+        </button>
+      </div>
+
       <div className={styles.playerContainer}>
         {' '}
         {sound.provider === 'spotify' ? (

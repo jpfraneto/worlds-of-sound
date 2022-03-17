@@ -36,13 +36,14 @@
 .playersContainer {
   display: flex;
   overflow-x: scroll;
-  padding: 8px 0;
+  padding: 8px;
+  height: 111px;
 }
 
 .playerContainer {
   background-color: bisque;
-  width: 222px;
-  margin: 0 4px;
+  width: 176px;
+  margin: 0 8px;
 }
 
 .reactPlayer {

@@ -1,15 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsSpotify } from 'react-icons/bs';
 import { FaSoundcloud } from 'react-icons/fa';
 import { AiFillYoutube } from 'react-icons/ai';
 import styles from './styles.module.css';
 import Link from 'next/link';
 import DisplayServiceInformation from './UserPageDisplayComponents/DisplayServiceInformation';
+import { useRouter } from 'next/router';
 
 const UserPageDisplay = ({ user }) => {
-  const [chosenService, setChosenService] = useState('');
-  const [chosenSounds, setChosenSounds] = useState([]);
+  const router = useRouter();
+  const [chosenService, setChosenService] = useState(
+    router.query.provider || ''
+  );
+  const [chosenSounds, setChosenSounds] = useState(
+    user[router.query.provider] || []
+  );
   const handleChooseProvider = provider => {
+    router.query.provider = provider;
+    router.push(router);
     setChosenService(provider);
     setChosenSounds(user[provider]);
   };
@@ -18,15 +26,19 @@ const UserPageDisplay = ({ user }) => {
       <div className={styles.userInformationContainer}>
         <h2>{user.username}</h2>
         <p>{user.bio}</p>
-        <Link href={`/sounds/new`}>
-          <a className={styles.newReviewBtn}>Add Sound</a>
-        </Link>
+
         <h4>{user.email} sounds</h4>
         <p>
           Spotify: {user.spotify?.length || 0} | Soundcloud:{' '}
           {user.soundcloud?.length || 0} | Youtube:
           {user.youtube?.length || 0}{' '}
         </p>
+        <div className={styles.btnContainer}>
+          {' '}
+          <Link href={`/sounds/new`}>
+            <a className={styles.newReviewBtn}>Add Sound</a>
+          </Link>
+        </div>
       </div>
       <div className={styles.userSharesContainer}>
         <div className={styles.servicePicker}>

@@ -10,7 +10,6 @@ const NavbarLeft = ({ session }) => {
       <div className={styles.topContainer}>
         <p>{session.user.name}</p>
         <p>{session.user.email}</p>
-        <h3>@{session.username}</h3>
       </div>
       <div className={styles.bottomContainer}>
         <Link href='/u/dashboard'>

@@ -62,7 +62,8 @@ const MainLandingSection = ({ scheduledDays }) => {
                 <Link href={`/sounds/id/${recentSound._id}`}>
                   <Image
                     src={`https://i.ytimg.com/vi/${recentSound.soundId}/sddefault.jpg`}
-                    layout='fill'
+                    width='176px'
+                    height='99px'
                   />
                 </Link>
               </div>

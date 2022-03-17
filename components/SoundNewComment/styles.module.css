@@ -63,3 +63,24 @@
 .commentBtn:hover {
   filter: brightness(85%);
 }
+
+.addingComment {
+  animation: blinker 1s infinite;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border: solid black 1px;
+  padding: 2px 6px;
+}
+
+@keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}

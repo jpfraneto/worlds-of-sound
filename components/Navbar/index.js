@@ -50,8 +50,8 @@ const Navbar = () => {
         </li>
         {session && session.user.email && (
           <li className={`${styles.btn} ${styles.contactSalesBtn}`}>
-            <Link href='/u/dashboard'>
-              <a>Dashboard</a>
+            <Link href={`/u/${session.user.email}`}>
+              <a>My Page</a>
             </Link>
           </li>
         )}

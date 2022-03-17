@@ -11,8 +11,7 @@ const ServiceInformationIndividualCard = ({ sound }) => {
       <div className={styles.iframeContainer}>
         {sound.provider === 'soundcloud' && (
           <iframe
-            width='100%'
-            height='300'
+            className={styles.soundIframe}
             scrolling='no'
             frameBorder='no'
             allow='autoplay'
@@ -21,8 +20,7 @@ const ServiceInformationIndividualCard = ({ sound }) => {
         )}
         {sound.provider === 'youtube' && (
           <iframe
-            width='100%'
-            height='300'
+            className={styles.soundIframe}
             scrolling='no'
             frameBorder='no'
             allow='autoplay'
@@ -43,10 +41,7 @@ const ServiceInformationIndividualCard = ({ sound }) => {
         <div className={styles.reactionsContainer}>
           <h4>
             <span>
-              8 <FaCommentDots />
-            </span>
-            <span>
-              12 <BiLike />
+              {sound.comments ? sound.comments.length : 0} <FaCommentDots />
             </span>
             <span>
               {sound.rangeRating}/100 <FcRating />

@@ -86,7 +86,7 @@ const AddNewSound = ({ selectedType, types }) => {
                     setSelectedSoundType(e.target.value);
                   }}
                 >
-                  <option value=''>Sound Type...</option>
+                  <option value=''>Choose Sound Type...</option>
                   {types.map((type, index) => (
                     <option key={index} value={type.soundtype}>
                       {type.soundtype}
