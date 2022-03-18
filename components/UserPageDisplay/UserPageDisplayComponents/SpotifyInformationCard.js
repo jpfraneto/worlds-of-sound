@@ -6,7 +6,6 @@ import { FcRating } from 'react-icons/fc';
 import Link from 'next/link';
 
 const SpotifyInformationCard = ({ sound }) => {
-  console.log('this sund is: ', sound);
   return (
     <div className={styles.albumCardContainer}>
       <div className={styles.albumImageContainer}>
@@ -22,7 +21,6 @@ const SpotifyInformationCard = ({ sound }) => {
           alt='image'
         />
       </div>
-
       <div className={styles.btnsContainer}>
         <a href={sound.url} target='_blank' rel='noreferrer'>
           Listen

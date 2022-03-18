@@ -28,6 +28,7 @@ const ServiceInformationIndividualCard = ({ sound }) => {
           ></iframe>
         )}
       </div>
+
       <div className={styles.btnsContainer}>
         <a href={sound.url} target='_blank' rel='noreferrer'>
           Listen

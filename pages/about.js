@@ -28,6 +28,7 @@ const About = () => {
           className={styles.forkLink}
           href='https://github.com/jpfraneto/worlds-of-sound'
           target='_blank'
+          rel='noreferrer'
         >
           fork in github
         </a>
