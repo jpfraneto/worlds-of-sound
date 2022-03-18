@@ -9,3 +9,5 @@ Challenges:
 - Connect with the API's of these three services, and be able to bring from there the pieces that the particular user has found valuable.
 - Study the API's of the three services and establish between them similarities and differences that speak about what is behind each project.
 - Establish what is valuable from each of the services, and be able to work with that.
+
+DONE!
