@@ -10,6 +10,7 @@
 
 .playerWrapper {
   position: relative;
+  border: solid white 2px;
   padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
 }
 
@@ -46,6 +47,7 @@
 
 .btnContainer {
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .goBackBtn {
@@ -85,6 +87,9 @@
 @media only screen and (max-width: 888px) {
   .mainContainer {
     width: 94%;
+  }
+  .playerContainer {
+    width: 92%;
   }
   .soundInformationContainer {
     display: flex;

@@ -39,13 +39,15 @@ const addSound = async (req, res) => {
     });
   try {
     let { db } = await connectToDatabase();
-    const newSound = await getSoundInformation(req.body);
+    const newSound = await getSoundInformation(req.body.newSound);
     const provider = newSound.provider;
     newSound.author = {
       email: session.user.email,
       id: session.id,
       image: session.user.image,
     };
+    newSound.metadata.title = req.body.title;
+    console.log('the new sound is: ', newSound);
     const response = await db.collection('sounds').insertOne(newSound);
     const response3 = await db
       .collection('recentlyAddedSounds')
@@ -60,7 +62,7 @@ const addSound = async (req, res) => {
         {
           _id: ObjectId(session.id),
         },
-        { $push: { youtube: req.body } }
+        { $push: { youtube: newSound } }
       );
       response2 = await db
         .collection('soundtypes')
@@ -74,7 +76,7 @@ const addSound = async (req, res) => {
         {
           _id: ObjectId(session.id),
         },
-        { $push: { soundcloud: req.body } }
+        { $push: { soundcloud: newSound } }
       );
       response2 = await db
         .collection('soundtypes')
@@ -88,7 +90,7 @@ const addSound = async (req, res) => {
         {
           _id: ObjectId(session.id),
         },
-        { $push: { spotify: req.body } }
+        { $push: { spotify: newSound } }
       );
       response2 = await db
         .collection('soundtypes')

@@ -12,7 +12,7 @@ const Navbar = () => {
     if (session) {
       setText(`Log Out`);
     } else {
-      setText('Sign In');
+      setText('Log In');
     }
   }, [session]);
 
@@ -31,7 +31,13 @@ const Navbar = () => {
       <Link href='/' passHref>
         <div className={styles.wholeLogoContainer}>
           <div className={styles.logoDiv}>
-            <Image src='/logo.png' width={60} height={60} alt='Logo' />
+            <Image
+              className={styles.logoImage}
+              src='/logo.png'
+              width={60}
+              height={60}
+              alt='Logo'
+            />
             <a className={styles.logoLink}>Worlds of Sound</a>
           </div>
           <p>Curating is Healing</p>

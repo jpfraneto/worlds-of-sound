@@ -12,7 +12,6 @@ import { useRouter } from 'next/router';
 
 const SoundDisplayPage = ({ sound }) => {
   const router = useRouter();
-  console.log('the router is: ', sound);
   return (
     <div className={styles.mainContainer}>
       <div className={styles.btnContainer}>

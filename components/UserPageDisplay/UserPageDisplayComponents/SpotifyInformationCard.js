@@ -6,6 +6,7 @@ import { FcRating } from 'react-icons/fc';
 import Link from 'next/link';
 
 const SpotifyInformationCard = ({ sound }) => {
+  console.log('this sund is: ', sound);
   return (
     <div className={styles.albumCardContainer}>
       <div className={styles.albumImageContainer}>
@@ -33,10 +34,7 @@ const SpotifyInformationCard = ({ sound }) => {
       <div className={styles.reactionsContainer}>
         <h4>
           <span>
-            8 <FaCommentDots />
-          </span>
-          <span>
-            12 <BiLike />
+            {sound.comments ? sound.comments.length : 0} <FaCommentDots />
           </span>
           <span>
             {sound.rangeRating}/100 <FcRating />

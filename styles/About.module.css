@@ -1,16 +1,44 @@
 .aboutMainContainer {
-  background-color: white;
+  text-align: center;
   height: var(--section-height);
-  margin: 0 88px;
+  padding: 20px;
   position: relative;
   flex-direction: row-reverse;
 }
 
+.forkLink {
+  color: red;
+  text-decoration: none;
+}
+
 .playerContainer {
-  width: 100%;
-  height: 100%;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .reactPlayer {
   aspect-ratio: 16/9;
+}
+
+@media only screen and (max-width: 768px) {
+  .aboutMainContainer {
+    height: var(--section-height);
+    margin: 0;
+    padding-top: 88px;
+    background-color: black;
+  }
+
+  .playerContainer {
+    width: 100%;
+    height: auto;
+  }
+
+  .reactPlayer {
+    aspect-ratio: 16/9;
+    width: 80%;
+    height: auto;
+  }
+  .reactPlayer div {
+    width: 80%;
+  }
 }

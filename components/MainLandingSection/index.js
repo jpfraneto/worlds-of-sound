@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const MainLandingSection = ({ scheduledDays }) => {
-  console.log('the scheduled days are: ', scheduledDays);
   const router = useRouter();
   const [winWidth, setWinWidth] = useState(0);
   const [winHeight, setWinHeight] = useState(0);
@@ -14,11 +13,9 @@ const MainLandingSection = ({ scheduledDays }) => {
   useEffect(() => {
     setWinWidth(window.innerWidth);
     setWinHeight(window.innerHeight - 100);
-    console.log('inside the use effect, before calling the function');
     getRecentSounds();
   }, []);
   const getRecentSounds = async () => {
-    console.log('inside the get recent sounds function');
     const response = await fetch('/api/sounds/recents');
     const data = await response.json();
     setRecentlyAddedSounds(data);
@@ -48,7 +45,7 @@ const MainLandingSection = ({ scheduledDays }) => {
           ⭐️
         </div>
       ))}
-      <div className={styles.lastAddedSoundsContainer}>
+      {/* <div className={styles.lastAddedSoundsContainer}>
         <div className={styles.topBanner}>
           <p className={styles.marquee}>
             <span>RECENTLY ADDED SOUNDS</span>
@@ -70,7 +67,7 @@ const MainLandingSection = ({ scheduledDays }) => {
               </div>
             ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

@@ -5,11 +5,12 @@
   --fourth: black;
   --fifth: #514b23;
   --white-txt: #black;
-  --section-height: calc(100vh - 88px - 25px);
+  --section-height: calc(100vh - 88px - 20px);
 }
 
 html,
 body {
+  min-width: 400px;
   padding: 0;
   background-color: black;
   color: white;

@@ -1,5 +1,5 @@
 .addNewSoundContainer {
-  width: 666px;
+  max-width: 666px;
   background-color: var(--secondary);
   border: solid white 3px;
   margin: 22px auto;
@@ -28,6 +28,11 @@
 
 .icons div {
   display: inline-block;
+}
+
+.soundcloudContainer input {
+  background-color: orange;
+  color: black;
 }
 
 .icons div > * {

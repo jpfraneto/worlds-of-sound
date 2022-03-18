@@ -3,7 +3,17 @@ import styles from './styles.module.css';
 import Loader from '../Loader';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRef } from 'react';
 import { getSoundProvider, getSoundId } from '../../lib/functions';
+
+const useFocus = () => {
+  const htmlElRef = useRef(null);
+  const setFocus = () => {
+    htmlElRef.current && htmlElRef.current.focus();
+  };
+
+  return [htmlElRef, setFocus];
+};
 
 const AddNewSound = ({ selectedType, types }) => {
   const [provider, setProvider] = useState('');
@@ -18,6 +28,11 @@ const AddNewSound = ({ selectedType, types }) => {
   const [serverMessage, setServerMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const [soundTypeRef, setSoundTypeFocus] = useFocus();
+  const [urleRef, setUrlFocus] = useFocus();
+  const [descriptionRef, setDescriptionFocus] = useFocus();
+
   const handleProviderSelection = e => {
     if (e.target.dataset.provider) setProvider(e.target.dataset.provider);
   };
@@ -42,22 +57,34 @@ const AddNewSound = ({ selectedType, types }) => {
     return setUrl(e.target.value);
   };
 
-  const submitSound = async () => {
+  const submitSound = async e => {
+    e.preventDefault();
     if (!url) {
+      setUrlFocus();
       return alert('Please add a valid url!');
     }
-    if (!selectedSoundType) return alert('Please add a sound type');
+    if (!selectedSoundType) {
+      setSoundTypeFocus();
+      return alert('Please add a sound type');
+    }
+    if (!description) {
+      setDescriptionFocus();
+      return alert('Please add a description for this sound!');
+    }
+    const newSound = {
+      url,
+      provider,
+      soundId,
+      selectedSoundType,
+      description,
+      rangeRating,
+    };
     const reqParams = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        url,
-        provider,
-        soundId,
-        selectedSoundType,
-        description,
+        newSound,
         title,
-        rangeRating,
       }),
     };
     setLoading(true);
@@ -85,6 +112,7 @@ const AddNewSound = ({ selectedType, types }) => {
                   onChange={e => {
                     setSelectedSoundType(e.target.value);
                   }}
+                  ref={soundTypeRef}
                 >
                   <option value=''>Choose Sound Type...</option>
                   {types.map((type, index) => (
@@ -131,8 +159,23 @@ const AddNewSound = ({ selectedType, types }) => {
                     name='url'
                     onChange={handleUrlChange}
                     placeholder={providerPlacerholder()}
+                    ref={urleRef}
                   />
                 </div>
+                {provider === 'soundcloud' && (
+                  <div
+                    className={`${styles.urlContainer} ${styles.soundcloudContainer}`}
+                  >
+                    <label htmlFor='url'>What is its name in soundcloud?</label>
+                    <input
+                      type='text'
+                      id='url'
+                      name='url'
+                      onChange={e => setTitle(e.target.value)}
+                      placeholder='DRAGANA - Femme Fantasia 2021'
+                    />
+                  </div>
+                )}
                 <div className={styles.descriptionContainer}>
                   <label htmlFor='description'>
                     What is this piece all about?
@@ -141,6 +184,7 @@ const AddNewSound = ({ selectedType, types }) => {
                     type='text'
                     id='description'
                     name='description'
+                    ref={descriptionRef}
                     onChange={e => setDescription(e.target.value)}
                     placeholder='Description...'
                   />
@@ -166,7 +210,11 @@ const AddNewSound = ({ selectedType, types }) => {
                     </div>
                     <p>Incredible</p>
                   </div>
-                  <button onClick={submitSound} className={styles.addSoundBtn}>
+                  <button
+                    type='button'
+                    onClick={submitSound}
+                    className={styles.addSoundBtn}
+                  >
                     Add Sound
                   </button>
                 </div>

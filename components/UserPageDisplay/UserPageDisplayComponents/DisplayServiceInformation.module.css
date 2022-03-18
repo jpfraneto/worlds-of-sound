@@ -2,7 +2,7 @@
   height: 100%;
   overflow-y: scroll;
   color: black;
-  border-left: solid 5px blue;
+  border-left: solid 5px black;
 }
 
 @media only screen and (min-width: 768px) {
