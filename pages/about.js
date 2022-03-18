@@ -11,7 +11,7 @@ const About = () => {
           className={styles.reactPlayer}
           height='100%'
           width='100%'
-          url='https://www.youtube.com/watch?v=YxnKBMblrXk'
+          url='https://www.youtube.com/watch?v=3REwFXlYfug'
         />
       </div>
       <br />
